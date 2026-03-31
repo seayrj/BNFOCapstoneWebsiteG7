@@ -6,7 +6,26 @@ title: "Results"
 Add bullet points as you go.
 
 ## Figures
-Add figures as you generate them. Example:
+
+::: details
+### Q-Q Plots
+
+- ![Cholesterol](figures/Cholesterol..mmol.L._qqplot.png)
+Appears normally distributed
+- ![HDL Cholesterol](figures/HDL_cholesterol..mmol.L._qqplot.png)
+Appears normally distributed
+- ![HEI-FLEX](figures/HEI-FLEX_qqplot.png)
+Appears normally distributed
+- ![Homocysteine](figures/Homocystein..µmol.L._qqplot.png)
+Appears right skewed
+- ![LDL Cholesterol](figures/LDL_cholesterol..mmol.L._qqplot.png)
+Appears normally distributed
+- ![Pulse Wave Velocity](figures/Pulse_wave_velocity_qqplot.png)
+Appears normally distributed, with one outlier
+- ![Triglycerides](figures/Triglycerides..mmol.L._qqplot.png)
+Appears right skewed
+
+:::
 
 ```{r}
 # If using R, put code here (optional)

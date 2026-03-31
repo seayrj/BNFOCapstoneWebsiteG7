@@ -1,5 +1,26 @@
 [
   {
+    "objectID": "team.html",
+    "href": "team.html",
+    "title": "Team",
+    "section": "",
+    "text": "Name 1 — role (data cleaning, EDA, modeling, writing)\nName 2 — role\nName 3 — role\nName 4 — role"
+  },
+  {
+    "objectID": "team.html#members",
+    "href": "team.html#members",
+    "title": "Team",
+    "section": "",
+    "text": "Name 1 — role (data cleaning, EDA, modeling, writing)\nName 2 — role\nName 3 — role\nName 4 — role"
+  },
+  {
+    "objectID": "team.html#collaboration-rules-simple",
+    "href": "team.html#collaboration-rules-simple",
+    "title": "Team",
+    "section": "2 Collaboration rules (simple)",
+    "text": "2 Collaboration rules (simple)\n\nPull before you start work.\nCommit small changes with clear messages.\nOnly one person edits the same .qmd file at a time.\nUse Issues (optional) for tasks/bugs."
+  },
+  {
     "objectID": "proposal.html",
     "href": "proposal.html",
     "title": "Proposal",
@@ -35,48 +56,6 @@
     "text": "4 Deliverables\n\nWebsite sections\nKey figures/tables\nAny optional stretch goals"
   },
   {
-    "objectID": "results.html",
-    "href": "results.html",
-    "title": "Results",
-    "section": "",
-    "text": "Add bullet points as you go."
-  },
-  {
-    "objectID": "results.html#key-findings-draft",
-    "href": "results.html#key-findings-draft",
-    "title": "Results",
-    "section": "",
-    "text": "Add bullet points as you go."
-  },
-  {
-    "objectID": "results.html#figures",
-    "href": "results.html#figures",
-    "title": "Results",
-    "section": "0.2 Figures",
-    "text": "0.2 Figures\nAdd figures as you generate them. Example:"
-  },
-  {
-    "objectID": "team.html",
-    "href": "team.html",
-    "title": "Team",
-    "section": "",
-    "text": "Name 1 — role (data cleaning, EDA, modeling, writing)\nName 2 — role\nName 3 — role\nName 4 — role"
-  },
-  {
-    "objectID": "team.html#members",
-    "href": "team.html#members",
-    "title": "Team",
-    "section": "",
-    "text": "Name 1 — role (data cleaning, EDA, modeling, writing)\nName 2 — role\nName 3 — role\nName 4 — role"
-  },
-  {
-    "objectID": "team.html#collaboration-rules-simple",
-    "href": "team.html#collaboration-rules-simple",
-    "title": "Team",
-    "section": "2 Collaboration rules (simple)",
-    "text": "2 Collaboration rules (simple)\n\nPull before you start work.\nCommit small changes with clear messages.\nOnly one person edits the same .qmd file at a time.\nUse Issues (optional) for tasks/bugs."
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Project Title",
@@ -103,5 +82,26 @@
     "title": "Project Title",
     "section": "3 Where to find things",
     "text": "3 Where to find things\n\nScripts: scripts/\nData notes: data/README.md\nFigures: figures/\nCitations: references.bib"
+  },
+  {
+    "objectID": "results.html",
+    "href": "results.html",
+    "title": "Results",
+    "section": "",
+    "text": "Add bullet points as you go."
+  },
+  {
+    "objectID": "results.html#key-findings-draft",
+    "href": "results.html#key-findings-draft",
+    "title": "Results",
+    "section": "",
+    "text": "Add bullet points as you go."
+  },
+  {
+    "objectID": "results.html#figures",
+    "href": "results.html#figures",
+    "title": "Results",
+    "section": "0.2 Figures",
+    "text": "0.2 Figures\n\n0.2.1 Q-Q Plots\n\n\n\n\nCholesterol\n\n\n\n\n\nHDL Cholesterol\n\n\n\n\n\nHEI-FLEX\n\n\n\n\n\nHomocysteine\n\n\n\n\n\nLDL Cholesterol\n\n\n\n\n\nPulse Wave Velocity\n\n\n\n\n\nTriglycerides"
   }
 ]
