@@ -159,52 +159,68 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="figures" class="level2" data-number="0.2">
 <h2 data-number="0.2" class="anchored" data-anchor-id="figures"><span class="header-section-number">0.2</span> Figures</h2>
-<section id="q-q-plots" class="level3 details" data-number="0.2.1">
+<section id="q-q-plots" class="level3" data-number="0.2.1">
 <h3 data-number="0.2.1" class="anchored" data-anchor-id="q-q-plots"><span class="header-section-number">0.2.1</span> Q-Q Plots</h3>
-<ul>
-<li><div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/Cholesterol..mmol.L._qqplot.png" class="img-fluid figure-img"></p>
-<figcaption>Cholesterol</figcaption>
-</figure>
-</div></li>
-<li><div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/HDL_cholesterol..mmol.L._qqplot.png" class="img-fluid figure-img"></p>
-<figcaption>HDL Cholesterol</figcaption>
-</figure>
-</div></li>
-<li><div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/HEI-FLEX_qqplot.png" class="img-fluid figure-img"></p>
-<figcaption>HEI-FLEX</figcaption>
-</figure>
-</div></li>
-<li><div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/Homocystein..µmol.L._qqplot.png" class="img-fluid figure-img"></p>
-<figcaption>Homocysteine</figcaption>
-</figure>
-</div></li>
-<li><div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/LDL_cholesterol..mmol.L._qqplot.png" class="img-fluid figure-img"></p>
-<figcaption>LDL Cholesterol</figcaption>
-</figure>
-</div></li>
-<li><div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/Pulse_wave_velocity_qqplot.png" class="img-fluid figure-img"></p>
-<figcaption>Pulse Wave Velocity</figcaption>
-</figure>
-</div></li>
-<li><div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/Triglycerides..mmol.L._qqplot.png" class="img-fluid figure-img"></p>
-<figcaption>Triglycerides</figcaption>
-</figure>
-</div></li>
-</ul>
+<details>
+<summary>
+Select a plot
+</summary>
+<div>
+<p><label for="qq-select">Choose variable:</label> <select id="qq-select" aria-label="Select Q-Q plot"> <option value="Cholesterol">Cholesterol</option> <option value="HDL Cholesterol">HDL Cholesterol</option> <option value="HEI-FLEX">HEI-FLEX</option> <option value="Homocysteine">Homocysteine</option> <option value="LDL Cholesterol">LDL Cholesterol</option> <option value="Pulse Wave Velocity">Pulse Wave Velocity</option> <option value="Triglycerides">Triglycerides</option> </select></p>
+</div>
+<div id="qq-container" style="margin-top:1rem;">
+<img id="qq-img" src="figures/Cholesterol..mmol.L._qqplot.png" alt="Cholesterol Q-Q plot" style="max-width:100%;height:auto;">
+<p id="qq-caption">
+Appears normally distributed
+</p>
+</div>
+<script>
+  const qqMap = {
+    "Cholesterol": {
+      src: "figures/Cholesterol..mmol.L._qqplot.png",
+      caption: "Appears normally distributed",
+    },
+    "HDL Cholesterol": {
+      src: "figures/HDL_cholesterol..mmol.L._qqplot.png",
+      caption: "Appears normally distributed",
+    },
+    "HEI-FLEX": {
+      src: "figures/HEI-FLEX_qqplot.png",
+      caption: "Appears normally distributed",
+    },
+    "Homocysteine": {
+      src: "figures/Homocystein..µmol.L._qqplot.png",
+      caption: "Appears right skewed",
+    },
+    "LDL Cholesterol": {
+      src: "figures/LDL_cholesterol..mmol.L._qqplot.png",
+      caption: "Appears normally distributed",
+    },
+    "Pulse Wave Velocity": {
+      src: "figures/Pulse_wave_velocity_qqplot.png",
+      caption: "Appears normally distributed, with one outlier",
+    },
+    "Triglycerides": {
+      src: "figures/Triglycerides..mmol.L._qqplot.png",
+      caption: "Appears right skewed",
+    },
+  };
+
+  const select = document.getElementById('qq-select');
+  const img = document.getElementById('qq-img');
+  const caption = document.getElementById('qq-caption');
+
+  select.addEventListener('change', (event) => {
+    const choice = event.target.value;
+    const data = qqMap[choice];
+    if (data) {
+      img.src = data.src;
+      img.alt = `${choice} Q-Q plot`;
+      caption.textContent = data.caption;
+    }
+  });
+</script>
+</details>
 </section>
 </section>
 <section id="if-using-r-put-code-here-optional" class="level1" data-number="1">
