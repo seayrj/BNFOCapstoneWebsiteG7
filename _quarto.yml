@@ -16,6 +16,7 @@ website:
         text: Results
       - href: team.qmd
         text: Team
+
   page-footer:
     left: "BNFO 420 • VCU"
     right: "Built with Quarto"
@@ -30,3 +31,4 @@ execute:
   echo: true
   warning: false
   message: false
+
