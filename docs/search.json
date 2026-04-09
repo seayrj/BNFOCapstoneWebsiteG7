@@ -102,6 +102,6 @@
     "href": "results.html#figures",
     "title": "Results",
     "section": "0.2 Figures",
-    "text": "0.2 Figures\n\n0.2.1 Q-Q Plots\n\n\nSelect a plot\n\n\nChoose variable:  Cholesterol HDL Cholesterol HEI-FLEX Homocysteine LDL Cholesterol Pulse Wave Velocity Triglycerides \n\n\n\n\nAppears normally distributed"
+    "text": "0.2 Figures\n\n0.2.1 Q-Q Plots\n\n\nSelect a plot\n\n\nVariable:  Cholesterol HDL Cholesterol HEI-FLEX Homocysteine LDL Cholesterol Pulse Wave Velocity Triglycerides \n\n\n\n\nAppears normally distributed"
   }
 ]
