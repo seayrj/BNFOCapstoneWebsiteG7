@@ -4,6 +4,7 @@ subtitle: "BNFO 420 Capstone"
 ---
 
 ## One-paragraph summary
+Our dataset consisted of specific diet data for 92 individuals with associated microbiome species data
 Write 4–6 sentences describing:
 - the problem or question
 - the dataset(s)
