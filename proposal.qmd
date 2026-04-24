@@ -1,25 +1,45 @@
 ---
-title: "Proposal"
+title: "Methods"
 ---
 
 ## Research question
-State your main question in 1–2 sentences. We are just using plain text here. For example Alcohol-associated liver disease is influenced by both genetic and
-environmental factors. In this project, we analyze publicly available transcriptomic data to evaluate...
 
-## Dataset(s)
-- Source:
-- Sample size:
-- Key variables:
-- License/usage notes:
+How do savory food intake and cholesterol jointly predict the presence of key beneficial gut microbial taxa?
 
-## Planned analysis
-Describe your plan in bullets:
-- Cleaning/QC
-- Visualizations
-- Statistical/ML approach
-- How you’ll validate (train/test, CV, sensitivity checks, etc.)
+## Data source
 
-## Deliverables
-- Website sections
-- Key figures/tables
-- Any optional stretch goals
+The project uses data from *Gut microbiome signatures of vegan, vegetarian and omnivore diets and associated health outcomes across 21,561 individuals*, representing a subset of the ZOE PREDICT 1 (P1) cohort in the United Kingdom.
+
+- Working cohort size: `N = 92` participants
+- Inputs: dietary pattern metrics, clinical biomarkers, and microbiome taxonomic data
+- Data format: three source `.xlsx` files merged into a unified analysis matrix
+
+## Analytical pipeline
+
+1. **Cohort and data assembly**  
+   Construct a working analysis dataset from ZOE PREDICT 1 subset data plus reference public metagenomic information.
+
+2. **Data integration and cleaning**  
+   Merge all files into `feature_matrix.csv` to simplify analysis in Python and R.
+
+3. **Taxa binarization**  
+   Convert taxonomy strings into per-taxon presence/absence indicators.
+
+4. **Distribution checks**  
+   Generate Q-Q plots in R to assess normality and identify skewed variables.
+
+5. **Exploratory associations**  
+   Build correlation heatmaps (`corrplot`) and run PCA to identify dominant features spanning diet, biomarkers, and taxa.
+
+6. **Statistical modeling**  
+   Fit logistic regression models for target taxa using savory intake, cholesterol, and their interaction while adjusting for age, sex, and BMI.
+
+7. **Multiple testing correction**  
+   Apply Benjamini-Hochberg FDR control across model families.
+
+## References and tooling
+
+- [ZOE PREDICT 1 Study](https://www.nature.com/articles/s41591-020-1145-4)
+- [Vegan/Vegetarian/Omnivore Study](https://www.nature.com/articles/s41564-024-01870-z)
+- [R `corrplot` package](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html)
+- [Benjamini-Hochberg FDR paper](https://www.jstor.org/stable/2346101)

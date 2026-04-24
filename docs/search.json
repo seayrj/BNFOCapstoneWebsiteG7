@@ -1,107 +1,142 @@
 [
   {
-    "objectID": "team.html",
-    "href": "team.html",
-    "title": "Team",
-    "section": "",
-    "text": "Name 1 — role (data cleaning, EDA, modeling, writing)\nName 2 — role\nName 3 — role\nName 4 — role"
-  },
-  {
-    "objectID": "team.html#members",
-    "href": "team.html#members",
-    "title": "Team",
-    "section": "",
-    "text": "Name 1 — role (data cleaning, EDA, modeling, writing)\nName 2 — role\nName 3 — role\nName 4 — role"
-  },
-  {
-    "objectID": "team.html#collaboration-rules-simple",
-    "href": "team.html#collaboration-rules-simple",
-    "title": "Team",
-    "section": "2 Collaboration rules (simple)",
-    "text": "2 Collaboration rules (simple)\n\nPull before you start work.\nCommit small changes with clear messages.\nOnly one person edits the same .qmd file at a time.\nUse Issues (optional) for tasks/bugs."
-  },
-  {
     "objectID": "proposal.html",
     "href": "proposal.html",
-    "title": "Proposal",
+    "title": "Methods",
     "section": "",
-    "text": "State your main question in 1–2 sentences. We are just using plain text here. For example Alcohol-associated liver disease is influenced by both genetic and environmental factors. In this project, we analyze publicly available transcriptomic data to evaluate…"
+    "text": "How do savory food intake and cholesterol jointly predict the presence of key beneficial gut microbial taxa?"
   },
   {
     "objectID": "proposal.html#research-question",
     "href": "proposal.html#research-question",
-    "title": "Proposal",
+    "title": "Methods",
     "section": "",
-    "text": "State your main question in 1–2 sentences. We are just using plain text here. For example Alcohol-associated liver disease is influenced by both genetic and environmental factors. In this project, we analyze publicly available transcriptomic data to evaluate…"
+    "text": "How do savory food intake and cholesterol jointly predict the presence of key beneficial gut microbial taxa?"
   },
   {
-    "objectID": "proposal.html#datasets",
-    "href": "proposal.html#datasets",
-    "title": "Proposal",
-    "section": "2 Dataset(s)",
-    "text": "2 Dataset(s)\n\nSource:\nSample size:\nKey variables:\nLicense/usage notes:"
+    "objectID": "proposal.html#data-source",
+    "href": "proposal.html#data-source",
+    "title": "Methods",
+    "section": "2 Data source",
+    "text": "2 Data source\nThe project uses data from Gut microbiome signatures of vegan, vegetarian and omnivore diets and associated health outcomes across 21,561 individuals, representing a subset of the ZOE PREDICT 1 (P1) cohort in the United Kingdom.\n\nWorking cohort size: N = 92 participants\nInputs: dietary pattern metrics, clinical biomarkers, and microbiome taxonomic data\nData format: three source .xlsx files merged into a unified analysis matrix"
   },
   {
-    "objectID": "proposal.html#planned-analysis",
-    "href": "proposal.html#planned-analysis",
-    "title": "Proposal",
-    "section": "3 Planned analysis",
-    "text": "3 Planned analysis\nDescribe your plan in bullets: - Cleaning/QC - Visualizations - Statistical/ML approach - How you’ll validate (train/test, CV, sensitivity checks, etc.)"
+    "objectID": "proposal.html#analytical-pipeline",
+    "href": "proposal.html#analytical-pipeline",
+    "title": "Methods",
+    "section": "3 Analytical pipeline",
+    "text": "3 Analytical pipeline\n\nCohort and data assembly\nConstruct a working analysis dataset from ZOE PREDICT 1 subset data plus reference public metagenomic information.\nData integration and cleaning\nMerge all files into feature_matrix.csv to simplify analysis in Python and R.\nTaxa binarization\nConvert taxonomy strings into per-taxon presence/absence indicators.\nDistribution checks\nGenerate Q-Q plots in R to assess normality and identify skewed variables.\nExploratory associations\nBuild correlation heatmaps (corrplot) and run PCA to identify dominant features spanning diet, biomarkers, and taxa.\nStatistical modeling\nFit logistic regression models for target taxa using savory intake, cholesterol, and their interaction while adjusting for age, sex, and BMI.\nMultiple testing correction\nApply Benjamini-Hochberg FDR control across model families."
   },
   {
-    "objectID": "proposal.html#deliverables",
-    "href": "proposal.html#deliverables",
-    "title": "Proposal",
-    "section": "4 Deliverables",
-    "text": "4 Deliverables\n\nWebsite sections\nKey figures/tables\nAny optional stretch goals"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Project Title",
-    "section": "",
-    "text": "Write 4–6 sentences describing: - the problem or question - the dataset(s) - your approach (methods) - what you will deliver (figures, model, dashboard, etc.)"
-  },
-  {
-    "objectID": "index.html#one-paragraph-summary",
-    "href": "index.html#one-paragraph-summary",
-    "title": "Project Title",
-    "section": "",
-    "text": "Write 4–6 sentences describing: - the problem or question - the dataset(s) - your approach (methods) - what you will deliver (figures, model, dashboard, etc.)"
-  },
-  {
-    "objectID": "index.html#project-roadmap-living",
-    "href": "index.html#project-roadmap-living",
-    "title": "Project Title",
-    "section": "2 Project roadmap (living)",
-    "text": "2 Project roadmap (living)\n\nFind dataset(s)\nDefine outcome + predictors / variables\nExploratory analysis + QC\nMethod 1 (required)\nMethod 2 (optional/extension)\nFinal figures + interpretation\nLimitations + ethics + reproducibility notes"
-  },
-  {
-    "objectID": "index.html#where-to-find-things",
-    "href": "index.html#where-to-find-things",
-    "title": "Project Title",
-    "section": "3 Where to find things",
-    "text": "3 Where to find things\n\nScripts: scripts/\nData notes: data/README.md\nFigures: figures/\nCitations: references.bib"
+    "objectID": "proposal.html#references-and-tooling",
+    "href": "proposal.html#references-and-tooling",
+    "title": "Methods",
+    "section": "4 References and tooling",
+    "text": "4 References and tooling\n\nZOE PREDICT 1 Study\nVegan/Vegetarian/Omnivore Study\nR corrplot package\nBenjamini-Hochberg FDR paper"
   },
   {
     "objectID": "results.html",
     "href": "results.html",
     "title": "Results",
     "section": "",
-    "text": "Add bullet points as you go."
+    "text": "Savory intake and cholesterol each show significant associations with microbial presence.\nTheir interaction term is significant and negative, indicating conditional effects.\nHigher cholesterol appears to attenuate the positive association between savory intake and focal taxa.\nPCA highlights diet and biomarker features as dominant axes alongside selected microbial variables."
   },
   {
-    "objectID": "results.html#key-findings-draft",
-    "href": "results.html#key-findings-draft",
+    "objectID": "results.html#key-findings",
+    "href": "results.html#key-findings",
     "title": "Results",
     "section": "",
-    "text": "Add bullet points as you go."
+    "text": "Savory intake and cholesterol each show significant associations with microbial presence.\nTheir interaction term is significant and negative, indicating conditional effects.\nHigher cholesterol appears to attenuate the positive association between savory intake and focal taxa.\nPCA highlights diet and biomarker features as dominant axes alongside selected microbial variables."
   },
   {
-    "objectID": "results.html#figures",
-    "href": "results.html#figures",
+    "objectID": "results.html#figure-walkthrough",
+    "href": "results.html#figure-walkthrough",
     "title": "Results",
-    "section": "0.2 Figures",
-    "text": "0.2 Figures\n\n0.2.1 Q-Q Plots\n\n\nSelect a plot\n\n\nVariable:  Cholesterol HDL Cholesterol HEI-FLEX Homocysteine LDL Cholesterol Pulse Wave Velocity Triglycerides \n\n\n\n\nAppears normally distributed"
+    "section": "2 Figure walkthrough",
+    "text": "2 Figure walkthrough\n\n2.1 Fig. 1 Analytical pipeline\n\nCohort + public metagenomic integration\nData harmonization into feature_matrix.csv\nPresence/absence encoding of taxa\nDistribution diagnostics (Q-Q plots)\nCorrelation and PCA screening\nLogistic regression with interaction terms and FDR correction\n\n\n\n2.2 Fig. 2 Differential taxa abundance: low vs. high savory diet\nTaxonomic abundance contrasts suggest substantial cohort-level differences by savory intake category, with stronger enrichment/depletion patterns concentrated in selected taxa.\n\n\n2.3 Fig. 3 Shannon diversity trajectory over 12 weeks\nLongitudinal diversity trends indicate increasing divergence between cohorts over time, consistent with sustained dietary modulation rather than transient shifts.\n\n\n2.4 Fig. 4 Beta diversity (PCoA, Bray-Curtis)\nOrdination-level separation between groups supports community-level compositional differences associated with dietary profile."
+  },
+  {
+    "objectID": "results.html#discussion",
+    "href": "results.html#discussion",
+    "title": "Results",
+    "section": "3 Discussion",
+    "text": "3 Discussion\nOur results support a central interpretation: savory dietary patterns do not act independently of host metabolic context. Instead, cholesterol appears to modulate microbiome response, producing a non-linear and context-dependent relationship between diet and microbial composition.\nThis interaction framework extends the standard “single exposure to single outcome” approach and provides a mechanistic basis for why microbiome responses to diet can vary across individuals with different host phenotypes."
+  },
+  {
+    "objectID": "results.html#limitations",
+    "href": "results.html#limitations",
+    "title": "Results",
+    "section": "4 Limitations",
+    "text": "4 Limitations\nThe current analysis is constrained by:\n\nmodest cohort size\nself-reported dietary measurements\ncompositional microbial data rather than absolute abundance\nlimited strain-level resolution relative to shotgun metagenomics"
+  },
+  {
+    "objectID": "results.html#future-work",
+    "href": "results.html#future-work",
+    "title": "Results",
+    "section": "5 Future work",
+    "text": "5 Future work\nPlanned next steps include:\n\nreplication in larger and more diverse cohorts\ncoupling with metabolomics and higher-resolution sequencing\nintervention-oriented study designs to test causality\nvalidation of focal taxa as potential diet-response biomarkers"
+  },
+  {
+    "objectID": "results.html#notes",
+    "href": "results.html#notes",
+    "title": "Results",
+    "section": "6 Notes",
+    "text": "6 Notes\nThis page currently prioritizes content transfer and narrative structure from the source site. In the next step, we can decide which interactive elements to re-introduce."
+  },
+  {
+    "objectID": "team.html",
+    "href": "team.html",
+    "title": "Team",
+    "section": "",
+    "text": "BNFO 420 Capstone Group\nResearch focus: microbiome, diet, and cardiometabolic biomarker interactions\nManuscript status: pre-print draft"
+  },
+  {
+    "objectID": "team.html#project-team",
+    "href": "team.html#project-team",
+    "title": "Team",
+    "section": "",
+    "text": "BNFO 420 Capstone Group\nResearch focus: microbiome, diet, and cardiometabolic biomarker interactions\nManuscript status: pre-print draft"
+  },
+  {
+    "objectID": "team.html#current-responsibilities",
+    "href": "team.html#current-responsibilities",
+    "title": "Team",
+    "section": "2 Current responsibilities",
+    "text": "2 Current responsibilities\n\nData integration and quality control\nExploratory statistical analysis (Q-Q plots, correlation, PCA)\nModeling (logistic regression with interaction terms)\nWriting and interpretation for manuscript sections"
+  },
+  {
+    "objectID": "team.html#workflow-conventions",
+    "href": "team.html#workflow-conventions",
+    "title": "Team",
+    "section": "3 Workflow conventions",
+    "text": "3 Workflow conventions\n\nPull before starting new edits\nKeep commits focused and descriptive\nAvoid parallel edits to the same .qmd file\nKeep data provenance notes updated in data/README.md"
+  },
+  {
+    "objectID": "team.html#manuscript-footer-metadata",
+    "href": "team.html#manuscript-footer-metadata",
+    "title": "Team",
+    "section": "4 Manuscript footer metadata",
+    "text": "4 Manuscript footer metadata\n\nLast updated: 2026\nVersion: Manuscript v1.0"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Microbiome x Cardiometabolic Health",
+    "section": "",
+    "text": "Bioinformatics Capstone\nn = 92 samples. Host phenotyping includes age, sex, BMI, and clinical biomarkers. ZOE PREDICT 1 (UK subset cohort)."
+  },
+  {
+    "objectID": "index.html#abstract",
+    "href": "index.html#abstract",
+    "title": "Microbiome x Cardiometabolic Health",
+    "section": "1 Abstract",
+    "text": "1 Abstract\nHumans have co-evolved with a complex internal ecosystem of microbiota, functioning less as isolated organisms and more as symbiotic vessels for trillions of microbial cells. While diets high in savory, energy-dense foods and elevated cholesterol are well-established risk factors for cardiometabolic disease, the precise role of the gut microbiome as an intermediary remains incompletely understood, particularly in the context of how host metabolic state modifies microbial responses to diet.\nWe hypothesize that the interaction between savory food intake and serum cholesterol levels predicts the depletion of beneficial gut microbes, providing a mechanistic link to diet-induced dysbiosis. Specifically, we tested whether these effects can be observed in key butyrate- and fiber-processing taxa, including Anaerostipes hadrus, Ruminococcus bicurculans, and Alistipes putredinis.\nA cohort (N = 92) was combined with public metagenomic datasets. We implemented an integrated analytical pipeline incorporating principal component analysis (PCA), logistic regression models of microbial presence, and adjustment for age, sex, and BMI, with multiple testing addressed using Benjamini-Hochberg false discovery rate correction.\nLogistic regression revealed evidence of associations for savory intake (p = 0.0495) and cholesterol (p = 0.0183), as well as a statistically significant interaction between these variables (p = 0.0266). The negative interaction coefficient suggested that increasing cholesterol can attenuate and ultimately reverse the relationship between savory intake and microbial presence.\nThese findings support a context-dependent mediator model in which host metabolic state shapes how dietary factors influence microbial composition, and they identify specific taxa as candidates for follow-up validation and microbiome-informed dietary intervention studies."
+  },
+  {
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
+    "title": "Microbiome x Cardiometabolic Health",
+    "section": "2 Introduction",
+    "text": "2 Introduction\nDiet is one of the most powerful environmental determinants of human health, with strong evidence linking dietary patterns and metabolic biomarkers to cardiometabolic disease risk. In particular, diets high in savory, energy-dense foods, alongside elevated serum cholesterol levels, have consistently been associated with increased incidence of metabolic dysfunction, inflammation, and long-term disease outcomes. However, the biological mechanisms that connect these risk factors to disease progression remain incompletely understood.\nRecently, the gut microbiome has emerged as a key intermediary between diet and host physiology. Rather than functioning as a passive community, gut microbiota actively metabolize diet-derived substrates and produce compounds that influence energy utilization, immune signaling, and whole-host metabolic balance.\nOne especially important pathway is short-chain fatty acid production, particularly butyrate. Depletion of butyrate-producing and fiber-degrading bacteria, including A. hadrus, R. bicurculans, and A. putredinis, has been associated with gut dysbiosis and adverse downstream outcomes.\nDespite this biological importance, most prior work has examined diet-microbiome and cholesterol-microbiome relationships separately. Our study addresses this gap by testing whether host metabolic context alters the microbiome’s dietary response."
   }
 ]

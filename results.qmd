@@ -2,85 +2,60 @@
 title: "Results"
 ---
 
-## Key findings (draft)
-Add bullet points as you go.
+## Key findings
 
-## Figures
+- Savory intake and cholesterol each show significant associations with microbial presence.
+- Their interaction term is significant and negative, indicating conditional effects.
+- Higher cholesterol appears to attenuate the positive association between savory intake and focal taxa.
+- PCA highlights diet and biomarker features as dominant axes alongside selected microbial variables.
 
-### Q-Q Plots
+## Figure walkthrough
 
-<details>
-<summary>Select a plot</summary>
+### Fig. 1 Analytical pipeline
 
-<div>
-  <label for="qq-select">Variable:</label>
-  <select id="qq-select" aria-label="Select Q-Q plot">
-    <option value="Cholesterol">Cholesterol</option>
-    <option value="HDL Cholesterol">HDL Cholesterol</option>
-    <option value="HEI-FLEX">HEI-FLEX</option>
-    <option value="Homocysteine">Homocysteine</option>
-    <option value="LDL Cholesterol">LDL Cholesterol</option>
-    <option value="Pulse Wave Velocity">Pulse Wave Velocity</option>
-    <option value="Triglycerides">Triglycerides</option>
-  </select>
-</div>
+- Cohort + public metagenomic integration
+- Data harmonization into `feature_matrix.csv`
+- Presence/absence encoding of taxa
+- Distribution diagnostics (Q-Q plots)
+- Correlation and PCA screening
+- Logistic regression with interaction terms and FDR correction
 
-<div id="qq-container" style="margin-top:1rem;">
-  <img id="qq-img" src="figures/Cholesterol..mmol.L._qqplot.png" alt="Cholesterol Q-Q plot" style="max-width:100%;height:auto;" />
-  <p id="qq-caption">Appears normally distributed</p>
-</div>
+### Fig. 2 Differential taxa abundance: low vs. high savory diet
 
-<script>
-  const qqMap = {
-    "Cholesterol": {
-      src: "figures/Cholesterol..mmol.L._qqplot.png",
-      caption: "Appears normally distributed",
-    },
-    "HDL Cholesterol": {
-      src: "figures/HDL_cholesterol..mmol.L._qqplot.png",
-      caption: "Appears normally distributed",
-    },
-    "HEI-FLEX": {
-      src: "figures/HEI-FLEX_qqplot.png",
-      caption: "Appears normally distributed",
-    },
-    "Homocysteine": {
-      src: "figures/Homocystein..µmol.L._qqplot.png",
-      caption: "Appears right skewed",
-    },
-    "LDL Cholesterol": {
-      src: "figures/LDL_cholesterol..mmol.L._qqplot.png",
-      caption: "Appears normally distributed",
-    },
-    "Pulse Wave Velocity": {
-      src: "figures/Pulse_wave_velocity_qqplot.png",
-      caption: "Appears normally distributed, with one outlier",
-    },
-    "Triglycerides": {
-      src: "figures/Triglycerides..mmol.L._qqplot.png",
-      caption: "Appears right skewed",
-    },
-  };
+Taxonomic abundance contrasts suggest substantial cohort-level differences by savory intake category, with stronger enrichment/depletion patterns concentrated in selected taxa.
 
-  const select = document.getElementById('qq-select');
-  const img = document.getElementById('qq-img');
-  const caption = document.getElementById('qq-caption');
+### Fig. 3 Shannon diversity trajectory over 12 weeks
 
-  select.addEventListener('change', (event) => {
-    const choice = event.target.value;
-    const data = qqMap[choice];
-    if (data) {
-      img.src = data.src;
-      img.alt = `${choice} Q-Q plot`;
-      caption.textContent = data.caption;
-    }
-  });
-</script>
+Longitudinal diversity trends indicate increasing divergence between cohorts over time, consistent with sustained dietary modulation rather than transient shifts.
 
-</details>
+### Fig. 4 Beta diversity (PCoA, Bray-Curtis)
 
-```{r}
-# If using R, put code here (optional)
+Ordination-level separation between groups supports community-level compositional differences associated with dietary profile.
 
-# If using Python, put code here (optional)
+## Discussion
 
+Our results support a central interpretation: savory dietary patterns do not act independently of host metabolic context. Instead, cholesterol appears to modulate microbiome response, producing a non-linear and context-dependent relationship between diet and microbial composition.
+
+This interaction framework extends the standard "single exposure to single outcome" approach and provides a mechanistic basis for why microbiome responses to diet can vary across individuals with different host phenotypes.
+
+## Limitations
+
+The current analysis is constrained by:
+
+- modest cohort size
+- self-reported dietary measurements
+- compositional microbial data rather than absolute abundance
+- limited strain-level resolution relative to shotgun metagenomics
+
+## Future work
+
+Planned next steps include:
+
+- replication in larger and more diverse cohorts
+- coupling with metabolomics and higher-resolution sequencing
+- intervention-oriented study designs to test causality
+- validation of focal taxa as potential diet-response biomarkers
+
+## Notes
+
+This page currently prioritizes content transfer and narrative structure from the source site. In the next step, we can decide which interactive elements to re-introduce.

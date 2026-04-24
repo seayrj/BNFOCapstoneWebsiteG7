@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Results – BNFO 420 Capstone</title>
+<title>Results – Microbiome x Cardiometabolic Health</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,10 +37,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b4e9557cfa6f22abb82a7b4c16b2874a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,6 +68,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
 
 </head>
@@ -80,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">BNFO 420 Capstone</span>
+    <span class="navbar-title">Microbiome x Cardiometabolic Health</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -95,7 +96,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./proposal.html"> 
-<span class="menu-text">Proposal</span></a>
+<span class="menu-text">Methods</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./results.html" aria-current="page"> 
@@ -121,13 +122,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#key-findings-draft" id="toc-key-findings-draft" class="nav-link active" data-scroll-target="#key-findings-draft"><span class="header-section-number">0.1</span> Key findings (draft)</a></li>
-  <li><a href="#figures" id="toc-figures" class="nav-link" data-scroll-target="#figures"><span class="header-section-number">0.2</span> Figures</a>
+  <li><a href="#key-findings" id="toc-key-findings" class="nav-link active" data-scroll-target="#key-findings"><span class="header-section-number">1</span> Key findings</a></li>
+  <li><a href="#figure-walkthrough" id="toc-figure-walkthrough" class="nav-link" data-scroll-target="#figure-walkthrough"><span class="header-section-number">2</span> Figure walkthrough</a>
   <ul class="collapse">
-  <li><a href="#q-q-plots" id="toc-q-q-plots" class="nav-link" data-scroll-target="#q-q-plots"><span class="header-section-number">0.2.1</span> Q-Q Plots</a></li>
+  <li><a href="#fig.-1-analytical-pipeline" id="toc-fig.-1-analytical-pipeline" class="nav-link" data-scroll-target="#fig.-1-analytical-pipeline"><span class="header-section-number">2.1</span> Fig. 1 Analytical pipeline</a></li>
+  <li><a href="#fig.-2-differential-taxa-abundance-low-vs.-high-savory-diet" id="toc-fig.-2-differential-taxa-abundance-low-vs.-high-savory-diet" class="nav-link" data-scroll-target="#fig.-2-differential-taxa-abundance-low-vs.-high-savory-diet"><span class="header-section-number">2.2</span> Fig. 2 Differential taxa abundance: low vs.&nbsp;high savory diet</a></li>
+  <li><a href="#fig.-3-shannon-diversity-trajectory-over-12-weeks" id="toc-fig.-3-shannon-diversity-trajectory-over-12-weeks" class="nav-link" data-scroll-target="#fig.-3-shannon-diversity-trajectory-over-12-weeks"><span class="header-section-number">2.3</span> Fig. 3 Shannon diversity trajectory over 12 weeks</a></li>
+  <li><a href="#fig.-4-beta-diversity-pcoa-bray-curtis" id="toc-fig.-4-beta-diversity-pcoa-bray-curtis" class="nav-link" data-scroll-target="#fig.-4-beta-diversity-pcoa-bray-curtis"><span class="header-section-number">2.4</span> Fig. 4 Beta diversity (PCoA, Bray-Curtis)</a></li>
   </ul></li>
-  <li><a href="#if-using-r-put-code-here-optional" id="toc-if-using-r-put-code-here-optional" class="nav-link" data-scroll-target="#if-using-r-put-code-here-optional"><span class="header-section-number">1</span> If using R, put code here (optional)</a></li>
-  <li><a href="#if-using-python-put-code-here-optional" id="toc-if-using-python-put-code-here-optional" class="nav-link" data-scroll-target="#if-using-python-put-code-here-optional"><span class="header-section-number">2</span> If using Python, put code here (optional)</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="header-section-number">3</span> Discussion</a></li>
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations"><span class="header-section-number">4</span> Limitations</a></li>
+  <li><a href="#future-work" id="toc-future-work" class="nav-link" data-scroll-target="#future-work"><span class="header-section-number">5</span> Future work</a></li>
+  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes"><span class="header-section-number">6</span> Notes</a></li>
   </ul>
 </nav>
     </div>
@@ -153,81 +159,69 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="key-findings-draft" class="level2" data-number="0.1">
-<h2 data-number="0.1" class="anchored" data-anchor-id="key-findings-draft"><span class="header-section-number">0.1</span> Key findings (draft)</h2>
-<p>Add bullet points as you go.</p>
+<section id="key-findings" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="key-findings"><span class="header-section-number">1</span> Key findings</h2>
+<ul>
+<li>Savory intake and cholesterol each show significant associations with microbial presence.</li>
+<li>Their interaction term is significant and negative, indicating conditional effects.</li>
+<li>Higher cholesterol appears to attenuate the positive association between savory intake and focal taxa.</li>
+<li>PCA highlights diet and biomarker features as dominant axes alongside selected microbial variables.</li>
+</ul>
 </section>
-<section id="figures" class="level2" data-number="0.2">
-<h2 data-number="0.2" class="anchored" data-anchor-id="figures"><span class="header-section-number">0.2</span> Figures</h2>
-<section id="q-q-plots" class="level3" data-number="0.2.1">
-<h3 data-number="0.2.1" class="anchored" data-anchor-id="q-q-plots"><span class="header-section-number">0.2.1</span> Q-Q Plots</h3>
-<details>
-<summary>
-Select a plot
-</summary>
-<div>
-<p><label for="qq-select">Variable:</label> <select id="qq-select" aria-label="Select Q-Q plot"> <option value="Cholesterol">Cholesterol</option> <option value="HDL Cholesterol">HDL Cholesterol</option> <option value="HEI-FLEX">HEI-FLEX</option> <option value="Homocysteine">Homocysteine</option> <option value="LDL Cholesterol">LDL Cholesterol</option> <option value="Pulse Wave Velocity">Pulse Wave Velocity</option> <option value="Triglycerides">Triglycerides</option> </select></p>
-</div>
-<div id="qq-container" style="margin-top:1rem;">
-<img id="qq-img" src="figures/Cholesterol..mmol.L._qqplot.png" alt="Cholesterol Q-Q plot" style="max-width:100%;height:auto;">
-<p id="qq-caption">
-Appears normally distributed
-</p>
-</div>
-<script>
-  const qqMap = {
-    "Cholesterol": {
-      src: "figures/Cholesterol..mmol.L._qqplot.png",
-      caption: "Appears normally distributed",
-    },
-    "HDL Cholesterol": {
-      src: "figures/HDL_cholesterol..mmol.L._qqplot.png",
-      caption: "Appears normally distributed",
-    },
-    "HEI-FLEX": {
-      src: "figures/HEI-FLEX_qqplot.png",
-      caption: "Appears normally distributed",
-    },
-    "Homocysteine": {
-      src: "figures/Homocystein..µmol.L._qqplot.png",
-      caption: "Appears right skewed",
-    },
-    "LDL Cholesterol": {
-      src: "figures/LDL_cholesterol..mmol.L._qqplot.png",
-      caption: "Appears normally distributed",
-    },
-    "Pulse Wave Velocity": {
-      src: "figures/Pulse_wave_velocity_qqplot.png",
-      caption: "Appears normally distributed, with one outlier",
-    },
-    "Triglycerides": {
-      src: "figures/Triglycerides..mmol.L._qqplot.png",
-      caption: "Appears right skewed",
-    },
-  };
-
-  const select = document.getElementById('qq-select');
-  const img = document.getElementById('qq-img');
-  const caption = document.getElementById('qq-caption');
-
-  select.addEventListener('change', (event) => {
-    const choice = event.target.value;
-    const data = qqMap[choice];
-    if (data) {
-      img.src = data.src;
-      img.alt = `${choice} Q-Q plot`;
-      caption.textContent = data.caption;
-    }
-  });
-</script>
-</details>
+<section id="figure-walkthrough" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="figure-walkthrough"><span class="header-section-number">2</span> Figure walkthrough</h2>
+<section id="fig.-1-analytical-pipeline" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="fig.-1-analytical-pipeline"><span class="header-section-number">2.1</span> Fig. 1 Analytical pipeline</h3>
+<ul>
+<li>Cohort + public metagenomic integration</li>
+<li>Data harmonization into <code>feature_matrix.csv</code></li>
+<li>Presence/absence encoding of taxa</li>
+<li>Distribution diagnostics (Q-Q plots)</li>
+<li>Correlation and PCA screening</li>
+<li>Logistic regression with interaction terms and FDR correction</li>
+</ul>
+</section>
+<section id="fig.-2-differential-taxa-abundance-low-vs.-high-savory-diet" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="fig.-2-differential-taxa-abundance-low-vs.-high-savory-diet"><span class="header-section-number">2.2</span> Fig. 2 Differential taxa abundance: low vs.&nbsp;high savory diet</h3>
+<p>Taxonomic abundance contrasts suggest substantial cohort-level differences by savory intake category, with stronger enrichment/depletion patterns concentrated in selected taxa.</p>
+</section>
+<section id="fig.-3-shannon-diversity-trajectory-over-12-weeks" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="fig.-3-shannon-diversity-trajectory-over-12-weeks"><span class="header-section-number">2.3</span> Fig. 3 Shannon diversity trajectory over 12 weeks</h3>
+<p>Longitudinal diversity trends indicate increasing divergence between cohorts over time, consistent with sustained dietary modulation rather than transient shifts.</p>
+</section>
+<section id="fig.-4-beta-diversity-pcoa-bray-curtis" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="fig.-4-beta-diversity-pcoa-bray-curtis"><span class="header-section-number">2.4</span> Fig. 4 Beta diversity (PCoA, Bray-Curtis)</h3>
+<p>Ordination-level separation between groups supports community-level compositional differences associated with dietary profile.</p>
 </section>
 </section>
-<section id="if-using-r-put-code-here-optional" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> If using R, put code here (optional)</h1>
+<section id="discussion" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="discussion"><span class="header-section-number">3</span> Discussion</h2>
+<p>Our results support a central interpretation: savory dietary patterns do not act independently of host metabolic context. Instead, cholesterol appears to modulate microbiome response, producing a non-linear and context-dependent relationship between diet and microbial composition.</p>
+<p>This interaction framework extends the standard “single exposure to single outcome” approach and provides a mechanistic basis for why microbiome responses to diet can vary across individuals with different host phenotypes.</p>
 </section>
-<section id="if-using-python-put-code-here-optional" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> If using Python, put code here (optional)</h1>
+<section id="limitations" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="limitations"><span class="header-section-number">4</span> Limitations</h2>
+<p>The current analysis is constrained by:</p>
+<ul>
+<li>modest cohort size</li>
+<li>self-reported dietary measurements</li>
+<li>compositional microbial data rather than absolute abundance</li>
+<li>limited strain-level resolution relative to shotgun metagenomics</li>
+</ul>
+</section>
+<section id="future-work" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="future-work"><span class="header-section-number">5</span> Future work</h2>
+<p>Planned next steps include:</p>
+<ul>
+<li>replication in larger and more diverse cohorts</li>
+<li>coupling with metabolomics and higher-resolution sequencing</li>
+<li>intervention-oriented study designs to test causality</li>
+<li>validation of focal taxa as potential diet-response biomarkers</li>
+</ul>
+</section>
+<section id="notes" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="notes"><span class="header-section-number">6</span> Notes</h2>
+<p>This page currently prioritizes content transfer and narrative structure from the source site. In the next step, we can decide which interactive elements to re-introduce.</p>
 
 
 </section>
@@ -637,13 +631,13 @@ Appears normally distributed
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>BNFO 420 • VCU</p>
+<p>BNFO 420 • VCU • End of Manuscript</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p>Built with Quarto</p>
+<p>Built with Quarto • Manuscript v1.0</p>
 </div>
   </div>
 </footer>
@@ -651,4 +645,5 @@ Appears normally distributed
 
 
 
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

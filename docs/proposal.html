@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Proposal – BNFO 420 Capstone</title>
+<title>Methods – Microbiome x Cardiometabolic Health</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,10 +37,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b4e9557cfa6f22abb82a7b4c16b2874a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,6 +68,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
 
 </head>
@@ -80,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">BNFO 420 Capstone</span>
+    <span class="navbar-title">Microbiome x Cardiometabolic Health</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -95,7 +96,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./proposal.html" aria-current="page"> 
-<span class="menu-text">Proposal</span></a>
+<span class="menu-text">Methods</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./results.html"> 
@@ -122,9 +123,9 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#research-question" id="toc-research-question" class="nav-link active" data-scroll-target="#research-question"><span class="header-section-number">1</span> Research question</a></li>
-  <li><a href="#datasets" id="toc-datasets" class="nav-link" data-scroll-target="#datasets"><span class="header-section-number">2</span> Dataset(s)</a></li>
-  <li><a href="#planned-analysis" id="toc-planned-analysis" class="nav-link" data-scroll-target="#planned-analysis"><span class="header-section-number">3</span> Planned analysis</a></li>
-  <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables"><span class="header-section-number">4</span> Deliverables</a></li>
+  <li><a href="#data-source" id="toc-data-source" class="nav-link" data-scroll-target="#data-source"><span class="header-section-number">2</span> Data source</a></li>
+  <li><a href="#analytical-pipeline" id="toc-analytical-pipeline" class="nav-link" data-scroll-target="#analytical-pipeline"><span class="header-section-number">3</span> Analytical pipeline</a></li>
+  <li><a href="#references-and-tooling" id="toc-references-and-tooling" class="nav-link" data-scroll-target="#references-and-tooling"><span class="header-section-number">4</span> References and tooling</a></li>
   </ul>
 </nav>
     </div>
@@ -133,7 +134,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Proposal</h1>
+<h1 class="title">Methods</h1>
 </div>
 
 
@@ -152,27 +153,43 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="research-question" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="research-question"><span class="header-section-number">1</span> Research question</h2>
-<p>State your main question in 1–2 sentences. We are just using plain text here. For example Alcohol-associated liver disease is influenced by both genetic and environmental factors. In this project, we analyze publicly available transcriptomic data to evaluate…</p>
+<p>How do savory food intake and cholesterol jointly predict the presence of key beneficial gut microbial taxa?</p>
 </section>
-<section id="datasets" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="datasets"><span class="header-section-number">2</span> Dataset(s)</h2>
+<section id="data-source" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="data-source"><span class="header-section-number">2</span> Data source</h2>
+<p>The project uses data from <em>Gut microbiome signatures of vegan, vegetarian and omnivore diets and associated health outcomes across 21,561 individuals</em>, representing a subset of the ZOE PREDICT 1 (P1) cohort in the United Kingdom.</p>
 <ul>
-<li>Source:</li>
-<li>Sample size:</li>
-<li>Key variables:</li>
-<li>License/usage notes:</li>
+<li>Working cohort size: <code>N = 92</code> participants</li>
+<li>Inputs: dietary pattern metrics, clinical biomarkers, and microbiome taxonomic data</li>
+<li>Data format: three source <code>.xlsx</code> files merged into a unified analysis matrix</li>
 </ul>
 </section>
-<section id="planned-analysis" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="planned-analysis"><span class="header-section-number">3</span> Planned analysis</h2>
-<p>Describe your plan in bullets: - Cleaning/QC - Visualizations - Statistical/ML approach - How you’ll validate (train/test, CV, sensitivity checks, etc.)</p>
+<section id="analytical-pipeline" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="analytical-pipeline"><span class="header-section-number">3</span> Analytical pipeline</h2>
+<ol type="1">
+<li><p><strong>Cohort and data assembly</strong><br>
+Construct a working analysis dataset from ZOE PREDICT 1 subset data plus reference public metagenomic information.</p></li>
+<li><p><strong>Data integration and cleaning</strong><br>
+Merge all files into <code>feature_matrix.csv</code> to simplify analysis in Python and R.</p></li>
+<li><p><strong>Taxa binarization</strong><br>
+Convert taxonomy strings into per-taxon presence/absence indicators.</p></li>
+<li><p><strong>Distribution checks</strong><br>
+Generate Q-Q plots in R to assess normality and identify skewed variables.</p></li>
+<li><p><strong>Exploratory associations</strong><br>
+Build correlation heatmaps (<code>corrplot</code>) and run PCA to identify dominant features spanning diet, biomarkers, and taxa.</p></li>
+<li><p><strong>Statistical modeling</strong><br>
+Fit logistic regression models for target taxa using savory intake, cholesterol, and their interaction while adjusting for age, sex, and BMI.</p></li>
+<li><p><strong>Multiple testing correction</strong><br>
+Apply Benjamini-Hochberg FDR control across model families.</p></li>
+</ol>
 </section>
-<section id="deliverables" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="deliverables"><span class="header-section-number">4</span> Deliverables</h2>
+<section id="references-and-tooling" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="references-and-tooling"><span class="header-section-number">4</span> References and tooling</h2>
 <ul>
-<li>Website sections</li>
-<li>Key figures/tables</li>
-<li>Any optional stretch goals</li>
+<li><a href="https://www.nature.com/articles/s41591-020-1145-4">ZOE PREDICT 1 Study</a></li>
+<li><a href="https://www.nature.com/articles/s41564-024-01870-z">Vegan/Vegetarian/Omnivore Study</a></li>
+<li><a href="https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html">R <code>corrplot</code> package</a></li>
+<li><a href="https://www.jstor.org/stable/2346101">Benjamini-Hochberg FDR paper</a></li>
 </ul>
 
 
@@ -583,13 +600,13 @@ ul.task-list li input[type="checkbox"] {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>BNFO 420 • VCU</p>
+<p>BNFO 420 • VCU • End of Manuscript</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p>Built with Quarto</p>
+<p>Built with Quarto • Manuscript v1.0</p>
 </div>
   </div>
 </footer>
@@ -597,4 +614,5 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
