@@ -2,60 +2,54 @@
 title: "Results"
 ---
 
-## Key findings
+## Results
 
-- Savory intake and cholesterol each show significant associations with microbial presence.
-- Their interaction term is significant and negative, indicating conditional effects.
-- Higher cholesterol appears to attenuate the positive association between savory intake and focal taxa.
-- PCA highlights diet and biomarker features as dominant axes alongside selected microbial variables.
+Overall, the logistic regression shows that there is a significant relationship between *Anaerostipes hadrus*, the intake of savory foods, and total cholesterol. Additionally, it was shown that cholesterol and savory food intake have an inverse relationship with *A. hadrus*. When cholesterol and savory food intake are both high, the presence of *A. hadrus* is significantly reduced. However, as cholesterol decreases and savory food intake increases, the presence of *A. hadrus* also increases.
 
-## Figure walkthrough
+This is likely due to the fact that *A. hadrus* helps process cholesterol within the body while contributing to butyrate production, a short-chain fatty acid required in gastrointestinal function. Since it is using cholesterol as an energy-associated substrate, it follows that there would be an increased presence when cholesterol is present, but when in excess, *A. hadrus* does not appear to thrive, so its presence is mitigated.
 
-### Fig. 1 Analytical pipeline
+Out of the three bacterial species identified from the PCA, *A. hadrus* was the only one that had a significant relationship with cholesterol and savory foods. This is most likely due to the fact that *Alistipes putredinis* and *Ruminococcus bicirculans* are more specialized microbes, responsible for fiber processing and providing a supplemental relationship to *A. hadrus*.
 
-- Cohort + public metagenomic integration
-- Data harmonization into `feature_matrix.csv`
-- Presence/absence encoding of taxa
-- Distribution diagnostics (Q-Q plots)
-- Correlation and PCA screening
-- Logistic regression with interaction terms and FDR correction
-
-### Fig. 2 Differential taxa abundance: low vs. high savory diet
-
-Taxonomic abundance contrasts suggest substantial cohort-level differences by savory intake category, with stronger enrichment/depletion patterns concentrated in selected taxa.
-
-### Fig. 3 Shannon diversity trajectory over 12 weeks
-
-Longitudinal diversity trends indicate increasing divergence between cohorts over time, consistent with sustained dietary modulation rather than transient shifts.
-
-### Fig. 4 Beta diversity (PCoA, Bray-Curtis)
-
-Ordination-level separation between groups supports community-level compositional differences associated with dietary profile.
+The relationship between all three microbes, vegetable intake, and fruit intake was tested, as well as the relationship between the microbes, protein intake, and cholesterol. All of the microbes demonstrated extremely small interactions between vegetable and fruit intake.
 
 ## Discussion
 
-Our results support a central interpretation: savory dietary patterns do not act independently of host metabolic context. Instead, cholesterol appears to modulate microbiome response, producing a non-linear and context-dependent relationship between diet and microbial composition.
+### Overview of key findings
 
-This interaction framework extends the standard "single exposure to single outcome" approach and provides a mechanistic basis for why microbiome responses to diet can vary across individuals with different host phenotypes.
+The primary finding of this study is that host metabolic state significantly modifies the relationship between dietary intake and gut microbiome composition. Rather than acting independently, savory food intake and serum cholesterol levels interface to shape the abundance of key gut microbial taxa. This supports a context-dependent model of diet-microbiome interactions, where metabolic biomarkers influence how dietary exposures translate into microbial outcomes.
+
+The most notable effect was observed in *Anaerostipes hadrus*, a major butyrate-producing species essential for gut barrier integrity and anti-inflammatory activity. The logistic regression model showed a statistically significant interaction between savory food intake and cholesterol levels (**p = 0.0266**). While *A. hadrus* remained relatively stable in individuals with low cholesterol regardless of diet, its predicted probability decreased substantially in high cholesterol individuals as savory foods intake increased. This suggests that elevated cholesterol may alter the gut environment in a way that increases microbial sensitivity to dietary stressors.
+
+This makes sense, as *A. hadrus* is responsible for producing short-chain fatty acids such as butyrate to break down cholesterol, as well as using cholesterol in bile-acid reactions in order to maintain gut stability (Vourakis et al.). *A. hadrus* helps to limit the amount of cholesterol within the gut, but when there is too much cholesterol present, it creates a hostile environment in which *A. hadrus* cannot thrive. This is especially apparent when observing the relationship between *A. hadrus*, total cholesterol, and intake of savory foods.
+
+As for the other two species, *R. bicirculans* and *A. putredinis* are much more specialized microbiota. They are more bile-resistant, which allows them to thrive in harsher conditions compared to *A. hadrus*. They provide a supplementary relationship to *A. hadrus*, as they also produce butyrate from dietary fiber (Parker et al.).
+
+### Microbial specialization and ecological shifts
+
+A comparison across taxa highlights clear differences in ecological response. *Ruminococcus bicirculans*, a fiber-degrading bacterium, showed no significant interaction effect, suggesting relative stability across dietary and metabolic conditions. In contrast, *Alistipes putredinis* displayed an opposite trend, with increased predicted abundance in high-cholesterol, high-savory conditions.
+
+These contrasting patterns suggest a shift in microbial ecology driven by host metabolic state. A possible explanation involves bile acid metabolism. Elevated cholesterol is associated with increased bile acid production, which can act as a selective antimicrobial agent. This environment may not favor sensitive fiber-fermenting bacteria such as *A. hadrus* while favoring bile-resistant species such as *A. putredinis*. The resulting shift reflects a transition from a fiber-degrading microbial community toward one adapted to high-fat, bile-rich conditions, a pattern consistent with diet-associated dysbiosis.
+
+### Biological interpretation
+
+These findings align with existing research on short-chain fatty acids and gut health. Butyrate-producing bacteria such as *A. hadrus* contribute to fueling colon epithelial cells and maintaining gut barrier function. Their reduction may therefore have downstream effects on inflammation and metabolic regulation. The observed interaction suggests that cholesterol does not only act as a passive biomarker but may actively shape the gut environment, modifying how dietary inputs influence microbial survival and function.
+
+### New knowledge and implications
+
+This study introduces an interaction-centered framework for understanding diet-microbiome relationships. Rather than treating diet as a universal predictor of microbial composition, the results demonstrate that host metabolic state functions as a key modifier. Specifically, individuals with elevated cholesterol may be more susceptible to diet-associated reductions in beneficial butyrate-producing bacteria. This has important implications for personalized nutrition, suggesting that dietary recommendations may need to account for baseline biomarkers such as cholesterol.
 
 ## Limitations
 
-The current analysis is constrained by:
-
-- modest cohort size
-- self-reported dietary measurements
-- compositional microbial data rather than absolute abundance
-- limited strain-level resolution relative to shotgun metagenomics
+This study is cross-sectional, meaning that causal relationships cannot be established.
 
 ## Future work
 
-Planned next steps include:
+Future directions will include expansion to larger and longitudinal cohorts, additional validation of species-level effects, and deeper analysis of mediation/moderation pathways linking diet, metabolic biomarkers, and microbiome outcomes.
 
-- replication in larger and more diverse cohorts
-- coupling with metabolomics and higher-resolution sequencing
-- intervention-oriented study designs to test causality
-- validation of focal taxa as potential diet-response biomarkers
+## Conclusion
 
-## Notes
+Host metabolic context appears to shape the microbiome response to diet, particularly for *A. hadrus* in the setting of savory food intake and cholesterol variation. These findings support a context-dependent interpretation of diet-microbiome relationships and motivate biomarker-informed dietary strategies in future microbiome research.
 
-This page currently prioritizes content transfer and narrative structure from the source site. In the next step, we can decide which interactive elements to re-introduce.
+## References
+
+References are listed in the project bibliography and in-text citations.

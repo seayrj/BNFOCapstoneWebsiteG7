@@ -2,44 +2,42 @@
 title: "Methods"
 ---
 
-## Research question
+In order to examine the relationship between the diet and overall health, various packages both in Python and R were used to clean and process the data. The data used in the analysis of this project was found in a paper titled *Gut microbiome signatures of vegan, vegetarian and omnivore diets and associated health outcomes across 21,561 individuals*. There are 93 samples within the data, each corresponding to a person whose gut microbiome was studied. The data contained here is separated into three `.xlsx` files.
 
-How do savory food intake and cholesterol jointly predict the presence of key beneficial gut microbial taxa?
+## Data Organization
 
-## Data source
+The first file contains the ages, diet types, sex, and diet duration. There are also columns containing a HEI Flex score, which is a measure of diet quality, assigned a score ranging from 0 to 100. The data file breaks down each person's diet into categories, with the first set of categories being adjectives such as sweet foods, savory foods, and so on. Then, the second category is for specific food groups, such as protein, carbohydrates, and whole grains. Each one of these categories is given an individual HEI Flex score, with the HEI Flex column being an average score based on the various diet categories. Additionally, this file contains intake, measured in grams per day, of each of these categories. The last section of data within this file contains concentrations of various biomarkers, such as cholesterol and triglycerides.
 
-The project uses data from *Gut microbiome signatures of vegan, vegetarian and omnivore diets and associated health outcomes across 21,561 individuals*, representing a subset of the ZOE PREDICT 1 (P1) cohort in the United Kingdom.
+The second data file contains taxonomic data about the microbiota within the participants' gut microbiomes. This data is represented by the unique taxonomy of bacteria found within each person's gut microbiome, formatted into one cell in the spreadsheet per sample.
 
-- Working cohort size: `N = 92` participants
-- Inputs: dietary pattern metrics, clinical biomarkers, and microbiome taxonomic data
-- Data format: three source `.xlsx` files merged into a unified analysis matrix
+## Data Cleaning and Processing
 
-## Analytical pipeline
+In order for easier statistical processing, we combined all three of these files into one master file, labeled `feature_matrix.csv`. This is a CSV file for easier processing, as it does not require the additional formatting consideration when imported into Python and R as an `.xlsx` file requires.
 
-1. **Cohort and data assembly**  
-   Construct a working analysis dataset from ZOE PREDICT 1 subset data plus reference public metagenomic information.
+Additionally, the bacterial taxonomic data was formatted into binary data for each sample, creating a function to check if the genomic completeness of a species was greater than 95% with less than 5% genomic contamination; then a `1` was inserted into the column for that bacterial species within the individual. If it did not meet these parameters, then a `0` was inserted, creating the binary columns for the bacteria. This allowed us to integrate the data seamlessly into the analysis, and to quickly find the variables or columns needed, rather than searching through three different files. Lastly, this feature matrix was converted into a data frame for the R scripts, as many statistical packages require data frames.
 
-2. **Data integration and cleaning**  
-   Merge all files into `feature_matrix.csv` to simplify analysis in Python and R.
+## Data Analysis
 
-3. **Taxa binarization**  
-   Convert taxonomy strings into per-taxon presence/absence indicators.
+To examine the relationships between the variables within the data, various exploratory methods were used. First, the data was used to plot Q-Q plots in R for each category of data. This is done to check how the data is distributed, normally or otherwise. By plotting a straight line on a graph, and then plotting the data points around that line, it shows exactly how the data is distributed. The closer the points are to the line, the more normally distributed the data is. The patterns of the data around the line also indicate skew when present. Once that was done and the data was found to be mostly normally distributed, it was passed to other analytical methods.
 
-4. **Distribution checks**  
-   Generate Q-Q plots in R to assess normality and identify skewed variables.
+To examine associations between the variables, heatmaps were implemented within R. This was done by using the `corrplot` package found within R. Heatmaps were used as an exploratory approach to capture as much of the pattern as possible from the data. To begin, `feature_matrix.csv` was converted to a table, and from that table, columns were selected and appended into lists to be passed to the heatmap. The columns were then passed into the `cor()` function to map associations, using a pairwise association method (`use='pairwise.complete.obs'`) to form the correlation matrix. To create the visualization, the correlation matrix is then passed to `corrplot()`, where colors and font sizes were adjusted for readability.
 
-5. **Exploratory associations**  
-   Build correlation heatmaps (`corrplot`) and run PCA to identify dominant features spanning diet, biomarkers, and taxa.
+## PCA
 
-6. **Statistical modeling**  
-   Fit logistic regression models for target taxa using savory intake, cholesterol, and their interaction while adjusting for age, sex, and BMI.
+Next, a PCA was conducted in R to reduce noise within the large dataset. It was first conducted on the entire dataset, and the resulting biplots and scree plots showed that it did not capture an adequate amount of variance. So, the data was divided into four groups: HEI Flex scores, intakes, biomarkers, and binary bacterial data. These were used in conjunction with `feature_matrix.csv` for the rest of the analysis.
 
-7. **Multiple testing correction**  
-   Apply Benjamini-Hochberg FDR control across model families.
+After conducting PCA on each group separately, much more noise was eliminated. Biplots were generated, and the heaviest groups (those contributing the most variance) were selected. This is how we selected groups of data to test the hypothesis, noting that cholesterol and savory food groups were among the heaviest contributors.
 
-## References and tooling
+The PCA was conducted in R by using `prcomp()`, which decomposes data into principal components (PC1 showing the most variance, PC2 the second most, and so on). A summary of PCA was generated as well to ensure statistical fit. `fviz` was used to visualize biplots and `fviz_eig()` was used for eigenvalue inspection. Labels were added with `labels=TRUE`, and then passed to `fviz_pca_var()` to plot vectors on a coordinate plane. The vectors were color-coded by contribution using `col.var='contrib'` with `gradient.cols=()` to produce interpretable contribution gradients.
 
-- [ZOE PREDICT 1 Study](https://www.nature.com/articles/s41591-020-1145-4)
-- [Vegan/Vegetarian/Omnivore Study](https://www.nature.com/articles/s41564-024-01870-z)
-- [R `corrplot` package](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html)
-- [Benjamini-Hochberg FDR paper](https://www.jstor.org/stable/2346101)
+## Mediation-Moderation Analysis
+
+Then, a mediation-moderation analysis was implemented. This examines whether a variable has a mediated or moderated effect on an outcome. This is done by looking at the direct result of the variable on the outcome, and then comparing it to the effect of the variable on the outcome when mediated by another factor. Once this relationship is established, it is then calculated how strong of an effect that mediator has on the outcome. This was implemented with multiple logistic regressions and interaction terms.
+
+## Logistic Regression
+
+The logistic regression was done in R, using `glmnet` to do the regression, and then visualizing it with `ggplot2` and `dplyr`. To finish the analysis, we needed to hone in on exact relationships after looking at associations. Logistic regression was selected because it can handle binary outcomes with continuous predictors.
+
+The grouped PCA data was imported for modeling. Models were iterated by species and predictor combination. `glm()` is assigned to a variable, and the variable is accessed to view regression output. For interaction terms, the model structure followed `y ~ x1 * x2`, where `y` was one bacterial target species at a time, `x1` was a specific dietary intake, and `x2` was the associated biomarker. The first iteration modeled the presence of *A. hadrus* in relation to total cholesterol and savory food intake. The feature matrix was passed to `glm()` to ensure a full fit.
+
+The regressions were visualized with `ggplot2`. A prediction grid was created using `dplyr`, and groups were initialized for high, average, and low cholesterol levels. Average cholesterol was defined as the mean, high as one standard deviation above the mean, and low as one standard deviation below the mean. Cholesterol level was converted to a factor for plotting. Predicted probabilities were generated and then passed into `ggplot()`, with lines color-coded by `Biomarker_Level`. Labels and legends were added for readability, and `theme_minimal()` with `ylim(0,1)` was used to keep the probability scale interpretable.

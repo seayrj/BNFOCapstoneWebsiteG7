@@ -122,10 +122,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#research-question" id="toc-research-question" class="nav-link active" data-scroll-target="#research-question"><span class="header-section-number">1</span> Research question</a></li>
-  <li><a href="#data-source" id="toc-data-source" class="nav-link" data-scroll-target="#data-source"><span class="header-section-number">2</span> Data source</a></li>
-  <li><a href="#analytical-pipeline" id="toc-analytical-pipeline" class="nav-link" data-scroll-target="#analytical-pipeline"><span class="header-section-number">3</span> Analytical pipeline</a></li>
-  <li><a href="#references-and-tooling" id="toc-references-and-tooling" class="nav-link" data-scroll-target="#references-and-tooling"><span class="header-section-number">4</span> References and tooling</a></li>
+  <li><a href="#data-organization" id="toc-data-organization" class="nav-link active" data-scroll-target="#data-organization"><span class="header-section-number">1</span> Data Organization</a></li>
+  <li><a href="#data-cleaning-and-processing" id="toc-data-cleaning-and-processing" class="nav-link" data-scroll-target="#data-cleaning-and-processing"><span class="header-section-number">2</span> Data Cleaning and Processing</a></li>
+  <li><a href="#data-analysis" id="toc-data-analysis" class="nav-link" data-scroll-target="#data-analysis"><span class="header-section-number">3</span> Data Analysis</a></li>
+  <li><a href="#pca" id="toc-pca" class="nav-link" data-scroll-target="#pca"><span class="header-section-number">4</span> PCA</a></li>
+  <li><a href="#mediation-moderation-analysis" id="toc-mediation-moderation-analysis" class="nav-link" data-scroll-target="#mediation-moderation-analysis"><span class="header-section-number">5</span> Mediation-Moderation Analysis</a></li>
+  <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link" data-scroll-target="#logistic-regression"><span class="header-section-number">6</span> Logistic Regression</a></li>
   </ul>
 </nav>
     </div>
@@ -151,46 +153,37 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="research-question" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="research-question"><span class="header-section-number">1</span> Research question</h2>
-<p>How do savory food intake and cholesterol jointly predict the presence of key beneficial gut microbial taxa?</p>
+<p>In order to examine the relationship between the diet and overall health, various packages both in Python and R were used to clean and process the data. The data used in the analysis of this project was found in a paper titled <em>Gut microbiome signatures of vegan, vegetarian and omnivore diets and associated health outcomes across 21,561 individuals</em>. There are 93 samples within the data, each corresponding to a person whose gut microbiome was studied. The data contained here is separated into three <code>.xlsx</code> files.</p>
+<section id="data-organization" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="data-organization"><span class="header-section-number">1</span> Data Organization</h2>
+<p>The first file contains the ages, diet types, sex, and diet duration. There are also columns containing a HEI Flex score, which is a measure of diet quality, assigned a score ranging from 0 to 100. The data file breaks down each person’s diet into categories, with the first set of categories being adjectives such as sweet foods, savory foods, and so on. Then, the second category is for specific food groups, such as protein, carbohydrates, and whole grains. Each one of these categories is given an individual HEI Flex score, with the HEI Flex column being an average score based on the various diet categories. Additionally, this file contains intake, measured in grams per day, of each of these categories. The last section of data within this file contains concentrations of various biomarkers, such as cholesterol and triglycerides.</p>
+<p>The second data file contains taxonomic data about the microbiota within the participants’ gut microbiomes. This data is represented by the unique taxonomy of bacteria found within each person’s gut microbiome, formatted into one cell in the spreadsheet per sample.</p>
 </section>
-<section id="data-source" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="data-source"><span class="header-section-number">2</span> Data source</h2>
-<p>The project uses data from <em>Gut microbiome signatures of vegan, vegetarian and omnivore diets and associated health outcomes across 21,561 individuals</em>, representing a subset of the ZOE PREDICT 1 (P1) cohort in the United Kingdom.</p>
-<ul>
-<li>Working cohort size: <code>N = 92</code> participants</li>
-<li>Inputs: dietary pattern metrics, clinical biomarkers, and microbiome taxonomic data</li>
-<li>Data format: three source <code>.xlsx</code> files merged into a unified analysis matrix</li>
-</ul>
+<section id="data-cleaning-and-processing" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="data-cleaning-and-processing"><span class="header-section-number">2</span> Data Cleaning and Processing</h2>
+<p>In order for easier statistical processing, we combined all three of these files into one master file, labeled <code>feature_matrix.csv</code>. This is a CSV file for easier processing, as it does not require the additional formatting consideration when imported into Python and R as an <code>.xlsx</code> file requires.</p>
+<p>Additionally, the bacterial taxonomic data was formatted into binary data for each sample, creating a function to check if the genomic completeness of a species was greater than 95% with less than 5% genomic contamination; then a <code>1</code> was inserted into the column for that bacterial species within the individual. If it did not meet these parameters, then a <code>0</code> was inserted, creating the binary columns for the bacteria. This allowed us to integrate the data seamlessly into the analysis, and to quickly find the variables or columns needed, rather than searching through three different files. Lastly, this feature matrix was converted into a data frame for the R scripts, as many statistical packages require data frames.</p>
 </section>
-<section id="analytical-pipeline" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="analytical-pipeline"><span class="header-section-number">3</span> Analytical pipeline</h2>
-<ol type="1">
-<li><p><strong>Cohort and data assembly</strong><br>
-Construct a working analysis dataset from ZOE PREDICT 1 subset data plus reference public metagenomic information.</p></li>
-<li><p><strong>Data integration and cleaning</strong><br>
-Merge all files into <code>feature_matrix.csv</code> to simplify analysis in Python and R.</p></li>
-<li><p><strong>Taxa binarization</strong><br>
-Convert taxonomy strings into per-taxon presence/absence indicators.</p></li>
-<li><p><strong>Distribution checks</strong><br>
-Generate Q-Q plots in R to assess normality and identify skewed variables.</p></li>
-<li><p><strong>Exploratory associations</strong><br>
-Build correlation heatmaps (<code>corrplot</code>) and run PCA to identify dominant features spanning diet, biomarkers, and taxa.</p></li>
-<li><p><strong>Statistical modeling</strong><br>
-Fit logistic regression models for target taxa using savory intake, cholesterol, and their interaction while adjusting for age, sex, and BMI.</p></li>
-<li><p><strong>Multiple testing correction</strong><br>
-Apply Benjamini-Hochberg FDR control across model families.</p></li>
-</ol>
+<section id="data-analysis" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="data-analysis"><span class="header-section-number">3</span> Data Analysis</h2>
+<p>To examine the relationships between the variables within the data, various exploratory methods were used. First, the data was used to plot Q-Q plots in R for each category of data. This is done to check how the data is distributed, normally or otherwise. By plotting a straight line on a graph, and then plotting the data points around that line, it shows exactly how the data is distributed. The closer the points are to the line, the more normally distributed the data is. The patterns of the data around the line also indicate skew when present. Once that was done and the data was found to be mostly normally distributed, it was passed to other analytical methods.</p>
+<p>To examine associations between the variables, heatmaps were implemented within R. This was done by using the <code>corrplot</code> package found within R. Heatmaps were used as an exploratory approach to capture as much of the pattern as possible from the data. To begin, <code>feature_matrix.csv</code> was converted to a table, and from that table, columns were selected and appended into lists to be passed to the heatmap. The columns were then passed into the <code>cor()</code> function to map associations, using a pairwise association method (<code>use='pairwise.complete.obs'</code>) to form the correlation matrix. To create the visualization, the correlation matrix is then passed to <code>corrplot()</code>, where colors and font sizes were adjusted for readability.</p>
 </section>
-<section id="references-and-tooling" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="references-and-tooling"><span class="header-section-number">4</span> References and tooling</h2>
-<ul>
-<li><a href="https://www.nature.com/articles/s41591-020-1145-4">ZOE PREDICT 1 Study</a></li>
-<li><a href="https://www.nature.com/articles/s41564-024-01870-z">Vegan/Vegetarian/Omnivore Study</a></li>
-<li><a href="https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html">R <code>corrplot</code> package</a></li>
-<li><a href="https://www.jstor.org/stable/2346101">Benjamini-Hochberg FDR paper</a></li>
-</ul>
+<section id="pca" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="pca"><span class="header-section-number">4</span> PCA</h2>
+<p>Next, a PCA was conducted in R to reduce noise within the large dataset. It was first conducted on the entire dataset, and the resulting biplots and scree plots showed that it did not capture an adequate amount of variance. So, the data was divided into four groups: HEI Flex scores, intakes, biomarkers, and binary bacterial data. These were used in conjunction with <code>feature_matrix.csv</code> for the rest of the analysis.</p>
+<p>After conducting PCA on each group separately, much more noise was eliminated. Biplots were generated, and the heaviest groups (those contributing the most variance) were selected. This is how we selected groups of data to test the hypothesis, noting that cholesterol and savory food groups were among the heaviest contributors.</p>
+<p>The PCA was conducted in R by using <code>prcomp()</code>, which decomposes data into principal components (PC1 showing the most variance, PC2 the second most, and so on). A summary of PCA was generated as well to ensure statistical fit. <code>fviz</code> was used to visualize biplots and <code>fviz_eig()</code> was used for eigenvalue inspection. Labels were added with <code>labels=TRUE</code>, and then passed to <code>fviz_pca_var()</code> to plot vectors on a coordinate plane. The vectors were color-coded by contribution using <code>col.var='contrib'</code> with <code>gradient.cols=()</code> to produce interpretable contribution gradients.</p>
+</section>
+<section id="mediation-moderation-analysis" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="mediation-moderation-analysis"><span class="header-section-number">5</span> Mediation-Moderation Analysis</h2>
+<p>Then, a mediation-moderation analysis was implemented. This examines whether a variable has a mediated or moderated effect on an outcome. This is done by looking at the direct result of the variable on the outcome, and then comparing it to the effect of the variable on the outcome when mediated by another factor. Once this relationship is established, it is then calculated how strong of an effect that mediator has on the outcome. This was implemented with multiple logistic regressions and interaction terms.</p>
+</section>
+<section id="logistic-regression" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="logistic-regression"><span class="header-section-number">6</span> Logistic Regression</h2>
+<p>The logistic regression was done in R, using <code>glmnet</code> to do the regression, and then visualizing it with <code>ggplot2</code> and <code>dplyr</code>. To finish the analysis, we needed to hone in on exact relationships after looking at associations. Logistic regression was selected because it can handle binary outcomes with continuous predictors.</p>
+<p>The grouped PCA data was imported for modeling. Models were iterated by species and predictor combination. <code>glm()</code> is assigned to a variable, and the variable is accessed to view regression output. For interaction terms, the model structure followed <code>y ~ x1 * x2</code>, where <code>y</code> was one bacterial target species at a time, <code>x1</code> was a specific dietary intake, and <code>x2</code> was the associated biomarker. The first iteration modeled the presence of <em>A. hadrus</em> in relation to total cholesterol and savory food intake. The feature matrix was passed to <code>glm()</code> to ensure a full fit.</p>
+<p>The regressions were visualized with <code>ggplot2</code>. A prediction grid was created using <code>dplyr</code>, and groups were initialized for high, average, and low cholesterol levels. Average cholesterol was defined as the mean, high as one standard deviation above the mean, and low as one standard deviation below the mean. Cholesterol level was converted to a factor for plotting. Predicted probabilities were generated and then passed into <code>ggplot()</code>, with lines color-coded by <code>Biomarker_Level</code>. Labels and legends were added for readability, and <code>theme_minimal()</code> with <code>ylim(0,1)</code> was used to keep the probability scale interpretable.</p>
 
 
 </section>
