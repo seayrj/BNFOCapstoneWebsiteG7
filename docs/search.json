@@ -1,107 +1,156 @@
 [
   {
-    "objectID": "team.html",
-    "href": "team.html",
-    "title": "Team",
-    "section": "",
-    "text": "Name 1 — role (data cleaning, EDA, modeling, writing)\nName 2 — role\nName 3 — role\nName 4 — role"
-  },
-  {
-    "objectID": "team.html#members",
-    "href": "team.html#members",
-    "title": "Team",
-    "section": "",
-    "text": "Name 1 — role (data cleaning, EDA, modeling, writing)\nName 2 — role\nName 3 — role\nName 4 — role"
-  },
-  {
-    "objectID": "team.html#collaboration-rules-simple",
-    "href": "team.html#collaboration-rules-simple",
-    "title": "Team",
-    "section": "2 Collaboration rules (simple)",
-    "text": "2 Collaboration rules (simple)\n\nPull before you start work.\nCommit small changes with clear messages.\nOnly one person edits the same .qmd file at a time.\nUse Issues (optional) for tasks/bugs."
-  },
-  {
     "objectID": "proposal.html",
     "href": "proposal.html",
-    "title": "Proposal",
+    "title": "Methods",
     "section": "",
-    "text": "State your main question in 1–2 sentences. We are just using plain text here. For example Alcohol-associated liver disease is influenced by both genetic and environmental factors. In this project, we analyze publicly available transcriptomic data to evaluate…"
+    "text": "In order to examine the relationship between the diet and overall health, various packages both in Python and R were used to clean and process the data. The data used in the analysis of this project was found in a paper titled Gut microbiome signatures of vegan, vegetarian and omnivore diets and associated health outcomes across 21,561 individuals. There are 93 samples within the data, each corresponding to a person whose gut microbiome was studied. The data contained here is separated into three .xlsx files."
   },
   {
-    "objectID": "proposal.html#research-question",
-    "href": "proposal.html#research-question",
-    "title": "Proposal",
-    "section": "",
-    "text": "State your main question in 1–2 sentences. We are just using plain text here. For example Alcohol-associated liver disease is influenced by both genetic and environmental factors. In this project, we analyze publicly available transcriptomic data to evaluate…"
+    "objectID": "proposal.html#data-organization",
+    "href": "proposal.html#data-organization",
+    "title": "Methods",
+    "section": "1 Data Organization",
+    "text": "1 Data Organization\nThe first file contains the ages, diet types, sex, and diet duration. There are also columns containing a HEI Flex score, which is a measure of diet quality, assigned a score ranging from 0 to 100. The data file breaks down each person’s diet into categories, with the first set of categories being adjectives such as sweet foods, savory foods, and so on. Then, the second category is for specific food groups, such as protein, carbohydrates, and whole grains. Each one of these categories is given an individual HEI Flex score, with the HEI Flex column being an average score based on the various diet categories. Additionally, this file contains intake, measured in grams per day, of each of these categories. The last section of data within this file contains concentrations of various biomarkers, such as cholesterol and triglycerides.\nThe second data file contains taxonomic data about the microbiota within the participants’ gut microbiomes. This data is represented by the unique taxonomy of bacteria found within each person’s gut microbiome, formatted into one cell in the spreadsheet per sample."
   },
   {
-    "objectID": "proposal.html#datasets",
-    "href": "proposal.html#datasets",
-    "title": "Proposal",
-    "section": "2 Dataset(s)",
-    "text": "2 Dataset(s)\n\nSource:\nSample size:\nKey variables:\nLicense/usage notes:"
+    "objectID": "proposal.html#data-cleaning-and-processing",
+    "href": "proposal.html#data-cleaning-and-processing",
+    "title": "Methods",
+    "section": "2 Data Cleaning and Processing",
+    "text": "2 Data Cleaning and Processing\nIn order for easier statistical processing, we combined all three of these files into one master file, labeled feature_matrix.csv. This is a CSV file for easier processing, as it does not require the additional formatting consideration when imported into Python and R as an .xlsx file requires.\nAdditionally, the bacterial taxonomic data was formatted into binary data for each sample, creating a function to check if the genomic completeness of a species was greater than 95% with less than 5% genomic contamination; then a 1 was inserted into the column for that bacterial species within the individual. If it did not meet these parameters, then a 0 was inserted, creating the binary columns for the bacteria. This allowed us to integrate the data seamlessly into the analysis, and to quickly find the variables or columns needed, rather than searching through three different files. Lastly, this feature matrix was converted into a data frame for the R scripts, as many statistical packages require data frames."
   },
   {
-    "objectID": "proposal.html#planned-analysis",
-    "href": "proposal.html#planned-analysis",
-    "title": "Proposal",
-    "section": "3 Planned analysis",
-    "text": "3 Planned analysis\nDescribe your plan in bullets: - Cleaning/QC - Visualizations - Statistical/ML approach - How you’ll validate (train/test, CV, sensitivity checks, etc.)"
+    "objectID": "proposal.html#data-analysis",
+    "href": "proposal.html#data-analysis",
+    "title": "Methods",
+    "section": "3 Data Analysis",
+    "text": "3 Data Analysis\nTo examine the relationships between the variables within the data, various exploratory methods were used. First, the data was used to plot Q-Q plots in R for each category of data. This is done to check how the data is distributed, normally or otherwise. By plotting a straight line on a graph, and then plotting the data points around that line, it shows exactly how the data is distributed. The closer the points are to the line, the more normally distributed the data is. The patterns of the data around the line also indicate skew when present. Once that was done and the data was found to be mostly normally distributed, it was passed to other analytical methods.\nTo examine associations between the variables, heatmaps were implemented within R. This was done by using the corrplot package found within R. Heatmaps were used as an exploratory approach to capture as much of the pattern as possible from the data. To begin, feature_matrix.csv was converted to a table, and from that table, columns were selected and appended into lists to be passed to the heatmap. The columns were then passed into the cor() function to map associations, using a pairwise association method (use='pairwise.complete.obs') to form the correlation matrix. To create the visualization, the correlation matrix is then passed to corrplot(), where colors and font sizes were adjusted for readability."
   },
   {
-    "objectID": "proposal.html#deliverables",
-    "href": "proposal.html#deliverables",
-    "title": "Proposal",
-    "section": "4 Deliverables",
-    "text": "4 Deliverables\n\nWebsite sections\nKey figures/tables\nAny optional stretch goals"
+    "objectID": "proposal.html#pca",
+    "href": "proposal.html#pca",
+    "title": "Methods",
+    "section": "4 PCA",
+    "text": "4 PCA\nNext, a PCA was conducted in R to reduce noise within the large dataset. It was first conducted on the entire dataset, and the resulting biplots and scree plots showed that it did not capture an adequate amount of variance. So, the data was divided into four groups: HEI Flex scores, intakes, biomarkers, and binary bacterial data. These were used in conjunction with feature_matrix.csv for the rest of the analysis.\nAfter conducting PCA on each group separately, much more noise was eliminated. Biplots were generated, and the heaviest groups (those contributing the most variance) were selected. This is how we selected groups of data to test the hypothesis, noting that cholesterol and savory food groups were among the heaviest contributors.\nThe PCA was conducted in R by using prcomp(), which decomposes data into principal components (PC1 showing the most variance, PC2 the second most, and so on). A summary of PCA was generated as well to ensure statistical fit. fviz was used to visualize biplots and fviz_eig() was used for eigenvalue inspection. Labels were added with labels=TRUE, and then passed to fviz_pca_var() to plot vectors on a coordinate plane. The vectors were color-coded by contribution using col.var='contrib' with gradient.cols=() to produce interpretable contribution gradients."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Project Title",
-    "section": "",
-    "text": "Write 4–6 sentences describing: - the problem or question - the dataset(s) - your approach (methods) - what you will deliver (figures, model, dashboard, etc.)"
+    "objectID": "proposal.html#mediation-moderation-analysis",
+    "href": "proposal.html#mediation-moderation-analysis",
+    "title": "Methods",
+    "section": "5 Mediation-Moderation Analysis",
+    "text": "5 Mediation-Moderation Analysis\nThen, a mediation-moderation analysis was implemented. This examines whether a variable has a mediated or moderated effect on an outcome. This is done by looking at the direct result of the variable on the outcome, and then comparing it to the effect of the variable on the outcome when mediated by another factor. Once this relationship is established, it is then calculated how strong of an effect that mediator has on the outcome. This was implemented with multiple logistic regressions and interaction terms."
   },
   {
-    "objectID": "index.html#one-paragraph-summary",
-    "href": "index.html#one-paragraph-summary",
-    "title": "Project Title",
-    "section": "",
-    "text": "Write 4–6 sentences describing: - the problem or question - the dataset(s) - your approach (methods) - what you will deliver (figures, model, dashboard, etc.)"
-  },
-  {
-    "objectID": "index.html#project-roadmap-living",
-    "href": "index.html#project-roadmap-living",
-    "title": "Project Title",
-    "section": "2 Project roadmap (living)",
-    "text": "2 Project roadmap (living)\n\nFind dataset(s)\nDefine outcome + predictors / variables\nExploratory analysis + QC\nMethod 1 (required)\nMethod 2 (optional/extension)\nFinal figures + interpretation\nLimitations + ethics + reproducibility notes"
-  },
-  {
-    "objectID": "index.html#where-to-find-things",
-    "href": "index.html#where-to-find-things",
-    "title": "Project Title",
-    "section": "3 Where to find things",
-    "text": "3 Where to find things\n\nScripts: scripts/\nData notes: data/README.md\nFigures: figures/\nCitations: references.bib"
+    "objectID": "proposal.html#logistic-regression",
+    "href": "proposal.html#logistic-regression",
+    "title": "Methods",
+    "section": "6 Logistic Regression",
+    "text": "6 Logistic Regression\nThe logistic regression was done in R, using glmnet to do the regression, and then visualizing it with ggplot2 and dplyr. To finish the analysis, we needed to hone in on exact relationships after looking at associations. Logistic regression was selected because it can handle binary outcomes with continuous predictors.\nThe grouped PCA data was imported for modeling. Models were iterated by species and predictor combination. glm() is assigned to a variable, and the variable is accessed to view regression output. For interaction terms, the model structure followed y ~ x1 * x2, where y was one bacterial target species at a time, x1 was a specific dietary intake, and x2 was the associated biomarker. The first iteration modeled the presence of A. hadrus in relation to total cholesterol and savory food intake. The feature matrix was passed to glm() to ensure a full fit.\nThe regressions were visualized with ggplot2. A prediction grid was created using dplyr, and groups were initialized for high, average, and low cholesterol levels. Average cholesterol was defined as the mean, high as one standard deviation above the mean, and low as one standard deviation below the mean. Cholesterol level was converted to a factor for plotting. Predicted probabilities were generated and then passed into ggplot(), with lines color-coded by Biomarker_Level. Labels and legends were added for readability, and theme_minimal() with ylim(0,1) was used to keep the probability scale interpretable."
   },
   {
     "objectID": "results.html",
     "href": "results.html",
     "title": "Results",
     "section": "",
-    "text": "Add bullet points as you go."
+    "text": "Overall, the logistic regression shows that there is a significant relationship between Anaerostipes hadrus, the intake of savory foods, and total cholesterol. Additionally, it was shown that cholesterol and savory food intake have an inverse relationship with A. hadrus. When cholesterol and savory food intake are both high, the presence of A. hadrus is significantly reduced. However, as cholesterol decreases and savory food intake increases, the presence of A. hadrus also increases.\nThis is likely due to the fact that A. hadrus helps process cholesterol within the body while contributing to butyrate production, a short-chain fatty acid required in gastrointestinal function. Since it is using cholesterol as an energy-associated substrate, it follows that there would be an increased presence when cholesterol is present, but when in excess, A. hadrus does not appear to thrive, so its presence is mitigated.\nOut of the three bacterial species identified from the PCA, A. hadrus was the only one that had a significant relationship with cholesterol and savory foods. This is most likely due to the fact that Alistipes putredinis and Ruminococcus bicirculans are more specialized microbes, responsible for fiber processing and providing a supplemental relationship to A. hadrus.\nThe relationship between all three microbes, vegetable intake, and fruit intake was tested, as well as the relationship between the microbes, protein intake, and cholesterol. All of the microbes demonstrated extremely small interactions between vegetable and fruit intake."
   },
   {
-    "objectID": "results.html#key-findings-draft",
-    "href": "results.html#key-findings-draft",
+    "objectID": "results.html#results",
+    "href": "results.html#results",
     "title": "Results",
     "section": "",
-    "text": "Add bullet points as you go."
+    "text": "Overall, the logistic regression shows that there is a significant relationship between Anaerostipes hadrus, the intake of savory foods, and total cholesterol. Additionally, it was shown that cholesterol and savory food intake have an inverse relationship with A. hadrus. When cholesterol and savory food intake are both high, the presence of A. hadrus is significantly reduced. However, as cholesterol decreases and savory food intake increases, the presence of A. hadrus also increases.\nThis is likely due to the fact that A. hadrus helps process cholesterol within the body while contributing to butyrate production, a short-chain fatty acid required in gastrointestinal function. Since it is using cholesterol as an energy-associated substrate, it follows that there would be an increased presence when cholesterol is present, but when in excess, A. hadrus does not appear to thrive, so its presence is mitigated.\nOut of the three bacterial species identified from the PCA, A. hadrus was the only one that had a significant relationship with cholesterol and savory foods. This is most likely due to the fact that Alistipes putredinis and Ruminococcus bicirculans are more specialized microbes, responsible for fiber processing and providing a supplemental relationship to A. hadrus.\nThe relationship between all three microbes, vegetable intake, and fruit intake was tested, as well as the relationship between the microbes, protein intake, and cholesterol. All of the microbes demonstrated extremely small interactions between vegetable and fruit intake."
   },
   {
-    "objectID": "results.html#figures",
-    "href": "results.html#figures",
+    "objectID": "results.html#discussion",
+    "href": "results.html#discussion",
     "title": "Results",
-    "section": "0.2 Figures",
-    "text": "0.2 Figures\n\n0.2.1 Q-Q Plots\n\n\nSelect a plot\n\n\nVariable:  Cholesterol HDL Cholesterol HEI-FLEX Homocysteine LDL Cholesterol Pulse Wave Velocity Triglycerides \n\n\n\n\nAppears normally distributed"
+    "section": "2 Discussion",
+    "text": "2 Discussion\n\n2.1 Overview of key findings\nThe primary finding of this study is that host metabolic state significantly modifies the relationship between dietary intake and gut microbiome composition. Rather than acting independently, savory food intake and serum cholesterol levels interface to shape the abundance of key gut microbial taxa. This supports a context-dependent model of diet-microbiome interactions, where metabolic biomarkers influence how dietary exposures translate into microbial outcomes.\nThe most notable effect was observed in Anaerostipes hadrus, a major butyrate-producing species essential for gut barrier integrity and anti-inflammatory activity. The logistic regression model showed a statistically significant interaction between savory food intake and cholesterol levels (p = 0.0266). While A. hadrus remained relatively stable in individuals with low cholesterol regardless of diet, its predicted probability decreased substantially in high cholesterol individuals as savory foods intake increased. This suggests that elevated cholesterol may alter the gut environment in a way that increases microbial sensitivity to dietary stressors.\nThis makes sense, as A. hadrus is responsible for producing short-chain fatty acids such as butyrate to break down cholesterol, as well as using cholesterol in bile-acid reactions in order to maintain gut stability (Vourakis et al.). A. hadrus helps to limit the amount of cholesterol within the gut, but when there is too much cholesterol present, it creates a hostile environment in which A. hadrus cannot thrive. This is especially apparent when observing the relationship between A. hadrus, total cholesterol, and intake of savory foods.\nAs for the other two species, R. bicirculans and A. putredinis are much more specialized microbiota. They are more bile-resistant, which allows them to thrive in harsher conditions compared to A. hadrus. They provide a supplementary relationship to A. hadrus, as they also produce butyrate from dietary fiber (Parker et al.).\n\n\n2.2 Microbial specialization and ecological shifts\nA comparison across taxa highlights clear differences in ecological response. Ruminococcus bicirculans, a fiber-degrading bacterium, showed no significant interaction effect, suggesting relative stability across dietary and metabolic conditions. In contrast, Alistipes putredinis displayed an opposite trend, with increased predicted abundance in high-cholesterol, high-savory conditions.\nThese contrasting patterns suggest a shift in microbial ecology driven by host metabolic state. A possible explanation involves bile acid metabolism. Elevated cholesterol is associated with increased bile acid production, which can act as a selective antimicrobial agent. This environment may not favor sensitive fiber-fermenting bacteria such as A. hadrus while favoring bile-resistant species such as A. putredinis. The resulting shift reflects a transition from a fiber-degrading microbial community toward one adapted to high-fat, bile-rich conditions, a pattern consistent with diet-associated dysbiosis.\n\n\n2.3 Biological interpretation\nThese findings align with existing research on short-chain fatty acids and gut health. Butyrate-producing bacteria such as A. hadrus contribute to fueling colon epithelial cells and maintaining gut barrier function. Their reduction may therefore have downstream effects on inflammation and metabolic regulation. The observed interaction suggests that cholesterol does not only act as a passive biomarker but may actively shape the gut environment, modifying how dietary inputs influence microbial survival and function.\n\n\n2.4 New knowledge and implications\nThis study introduces an interaction-centered framework for understanding diet-microbiome relationships. Rather than treating diet as a universal predictor of microbial composition, the results demonstrate that host metabolic state functions as a key modifier. Specifically, individuals with elevated cholesterol may be more susceptible to diet-associated reductions in beneficial butyrate-producing bacteria. This has important implications for personalized nutrition, suggesting that dietary recommendations may need to account for baseline biomarkers such as cholesterol."
+  },
+  {
+    "objectID": "results.html#limitations",
+    "href": "results.html#limitations",
+    "title": "Results",
+    "section": "3 Limitations",
+    "text": "3 Limitations\nThis study is cross-sectional, meaning that causal relationships cannot be established."
+  },
+  {
+    "objectID": "results.html#future-work",
+    "href": "results.html#future-work",
+    "title": "Results",
+    "section": "4 Future work",
+    "text": "4 Future work\nFuture directions will include expansion to larger and longitudinal cohorts, additional validation of species-level effects, and deeper analysis of mediation/moderation pathways linking diet, metabolic biomarkers, and microbiome outcomes."
+  },
+  {
+    "objectID": "results.html#conclusion",
+    "href": "results.html#conclusion",
+    "title": "Results",
+    "section": "5 Conclusion",
+    "text": "5 Conclusion\nHost metabolic context appears to shape the microbiome response to diet, particularly for A. hadrus in the setting of savory food intake and cholesterol variation. These findings support a context-dependent interpretation of diet-microbiome relationships and motivate biomarker-informed dietary strategies in future microbiome research."
+  },
+  {
+    "objectID": "results.html#references",
+    "href": "results.html#references",
+    "title": "Results",
+    "section": "6 References",
+    "text": "6 References\nReferences are listed in the project bibliography and in-text citations."
+  },
+  {
+    "objectID": "team.html",
+    "href": "team.html",
+    "title": "Team",
+    "section": "",
+    "text": "BNFO 420 Capstone Group\nResearch focus: microbiome, diet, and cardiometabolic biomarker interactions\nManuscript status: pre-print draft"
+  },
+  {
+    "objectID": "team.html#project-team",
+    "href": "team.html#project-team",
+    "title": "Team",
+    "section": "",
+    "text": "BNFO 420 Capstone Group\nResearch focus: microbiome, diet, and cardiometabolic biomarker interactions\nManuscript status: pre-print draft"
+  },
+  {
+    "objectID": "team.html#current-responsibilities",
+    "href": "team.html#current-responsibilities",
+    "title": "Team",
+    "section": "2 Current responsibilities",
+    "text": "2 Current responsibilities\n\nData integration and quality control\nExploratory statistical analysis (Q-Q plots, correlation, PCA)\nModeling (logistic regression with interaction terms)\nWriting and interpretation for manuscript sections"
+  },
+  {
+    "objectID": "team.html#workflow-conventions",
+    "href": "team.html#workflow-conventions",
+    "title": "Team",
+    "section": "3 Workflow conventions",
+    "text": "3 Workflow conventions\n\nPull before starting new edits\nKeep commits focused and descriptive\nAvoid parallel edits to the same .qmd file\nKeep data provenance notes updated in data/README.md"
+  },
+  {
+    "objectID": "team.html#manuscript-footer-metadata",
+    "href": "team.html#manuscript-footer-metadata",
+    "title": "Team",
+    "section": "4 Manuscript footer metadata",
+    "text": "4 Manuscript footer metadata\n\nLast updated: 2026\nVersion: Manuscript v1.0"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Microbiome x Cardiometabolic Health",
+    "section": "",
+    "text": "Bioinformatics Capstone\nn = 92 samples. Host phenotyping includes age, sex, BMI, and clinical biomarkers. ZOE PREDICT 1 (UK subset cohort)."
+  },
+  {
+    "objectID": "index.html#abstract",
+    "href": "index.html#abstract",
+    "title": "Microbiome x Cardiometabolic Health",
+    "section": "1 Abstract",
+    "text": "1 Abstract\nHumans have co-evolved with a complex internal ecosystem of microbiota, functioning less as isolated organisms and more as symbiotic vessels for trillions of microbial cells. While diets high in savory, energy-dense foods, and elevated cholesterol are well-established risk factors for cardiometabolic disease, the precise role of the gut microbiome as an intermediary remains incompletely understood, particularly in the context of how host metabolic state modifies microbial responses to diet. We hypothesize that the interaction between savory food intake and serum cholesterol levels predicts the depletion of beneficial gut microbes, providing a mechanistic link to diet-induced dysbiosis. Specifically, we tested whether these effects can be observed in key butyrate- and fiber processing taxa, including Anaerostipes hadrus, Ruminococcus bicirculans, and Alistipes putredinis, and whether this relationship depends on host metabolic context.\nA cohort (N = 92) was combined with public metagenomic datasets. We implemented an integrated analytical pipeline incorporating principal component analysis (PCA), logistic regression models of microbial presence, and adjustment for age, sex, and BMI, with multiple testing addressed using Benjamini-Hochberg false discovery rate correction. Our PCA, anchored by dietary indices including Healthy Eating Index (HEI) and Flex scores, identified savory intake, carbohydrates, cholesterol, LDL, ferritin, and creatine as dominant contributors, alongside the selected microbial taxa, supporting their inclusion as key features for downstream analysis.\nLogistic regression revealed evidence of associations for savory intake (p = 0.0495) and cholesterol (p = 0.0183), as well as a statistically significant interaction between these variables (p = 0.0266). The negative interaction coefficient indicated that increasing cholesterol reduces and can ultimately reverse the relationship between savory intake and microbial presence, possibly suggesting a conditional and non-linear relationship between diet and microbiome composition.\nThese findings suggest that the microbiome functions as a context-dependent mediator of diet-health relationships, with host metabolic state shaping how dietary factors influence microbial composition. This interaction-based framework provides a mechanistic explanation for diet-associated dysbiosis and identifies specific taxa as candidates for future validation in larger, longitudinal studies and potential targets for microbiome informed dietary interventions."
+  },
+  {
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
+    "title": "Microbiome x Cardiometabolic Health",
+    "section": "2 Introduction",
+    "text": "2 Introduction\nDiet is one of the most powerful environmental determinants of human health, with strong evidence linking dietary patterns and metabolic biomarkers to cardiometabolic disease risk. In particular, diets high in savory, energy-dense foods, alongside elevated serum cholesterol levels, have consistently been associated with increased incidence of metabolic dysfunction, inflammation, and long-term disease outcomes. However, the biological mechanisms that connect these risk factors to disease progression remain incompletely understood.\nRecently the gut microbiome emerged as a key intermediary between diet and host physiology. Rather than being just a passive group of microorganisms, the gut microbiota actively breaks down the food we eat and produces vital compounds that affect energy use, immune health, and overall metabolism. One of the most important of these processes is the production of short-chain fatty acid, especially butyrate, which plays a key role in maintaining gut health. The depletion of butyrate-producing and fiber-degrading bacteria, including Anaerostipes hadrus, Ruminococcus bicirculans, and Alistipes putredinis, has been associated with gut dysbiosis and adverse health outcomes.\nShort chain fatty acids (SCFA) are very important in maintaining host symbiosis, as well as directly contributing to colon health (Tan et al.). Butyrate is one of these SCFAs, and is very important in overall health. It breaks down cholesterol within the body, is very important in maintaining homeostasis, as well as nourishing the colon (Snodgrass et al.). Most SCFAs are absorbed directly into the intestines, leaving the colon without any. One of the many reasons that microbiota within the gut are so beneficial is that they produce SCFAs, supplying the colon with an adequate amount of them to function. Without these microbiota, overall health would be greatly impacted, and would negatively impact immune responses, as well as neurological function through the gut-brain axis (Snodgrass et al.). This ultimately results in the classification of these species as keystone species within the gut, as they play such a significant role in maintaining host health.\nAnaerostipes hadrus is a member of the Lachnospiraceae family that incorporates SCFAs into butyrate, which aids in cell barrier maintenance and immune responses (Herold et al.). Additionally, the presence of A. hadrus consumes nutrients often used by members of the Enterobacteriaceae family, and organisms produce pathogen-inhibiting SCFAs (SCFAs other than butyrate) providing resistance against colonization by its members (Herold et al.). Some Ruminococcus species are also from the family Lachnospiraceae, but those that are not are from the Oscillospiraceae family that shares many properties with Lachnospiraceae family, being non-motile, gram-positive obligate anaerobes (Valentino et al.). Excessive presence of certain species can cause inflammation, though others are largely beneficial for their ability to hydrolyze resistant starches, N- and O-glycans in the case of Lachnospiraceae species and fiber in the case of Oscillospiraceae (Valentino et al.).\nDespite butyrate’s well-established biological importance, most studies have looked at diet-microbiome relationships and cholesterol-microbiome relationships separately. This misses an important possibility that a person’s metabolic state may change how diet affects the gut microbiome. In other words, dietary effects on gut bacteria may not be the same for everyone, instead they may depend on factors like cholesterol levels. This idea where host conditions influence how diet shapes microbial composition, is still not well studied, especially for key butyrate-producing bacteria. To effectively address this gap we investigated whether the interaction between savory food intake and serum cholesterol levels predicts the presence of key beneficial gut microbes. We focused on A. hadrus, R. bicirculans, and A. putredinis as representative taxa involved in fiber metabolism and butyrate production.\n\nHypothesis: We hypothesize that the interaction between savory food intake and serum cholesterol levels contributes to the depletion of beneficial microbes, providing a mechanistic link between diet, host metabolic state and gut dysbiosis.\n\nTo test this hypothesis, we used an integrated analytical framework combining principal component analysis (PCA), logistic regression with interaction terms, and linear modeling of clinical biomarkers like cholesterol, ferritin, and creatine. By integrating dietary indices (including the Healthy Eating Index and Flex scores), metabolic biomarkers, and microbial composition data from a cohort (N = 92) and public metagenomic datasets, this study aims to move beyond simple associations and toward a mechanistic understanding of how diet and host metabolism jointly shape the gut microbiome."
   }
 ]

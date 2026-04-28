@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Results – BNFO 420 Capstone</title>
+<title>Results – Microbiome x Cardiometabolic Health</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,10 +37,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b4e9557cfa6f22abb82a7b4c16b2874a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,6 +68,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
 
 </head>
@@ -80,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">BNFO 420 Capstone</span>
+    <span class="navbar-title">Microbiome x Cardiometabolic Health</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -95,7 +96,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./proposal.html"> 
-<span class="menu-text">Proposal</span></a>
+<span class="menu-text">Methods</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./results.html" aria-current="page"> 
@@ -121,13 +122,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#key-findings-draft" id="toc-key-findings-draft" class="nav-link active" data-scroll-target="#key-findings-draft"><span class="header-section-number">0.1</span> Key findings (draft)</a></li>
-  <li><a href="#figures" id="toc-figures" class="nav-link" data-scroll-target="#figures"><span class="header-section-number">0.2</span> Figures</a>
+  <li><a href="#results" id="toc-results" class="nav-link active" data-scroll-target="#results"><span class="header-section-number">1</span> Results</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="header-section-number">2</span> Discussion</a>
   <ul class="collapse">
-  <li><a href="#q-q-plots" id="toc-q-q-plots" class="nav-link" data-scroll-target="#q-q-plots"><span class="header-section-number">0.2.1</span> Q-Q Plots</a></li>
+  <li><a href="#overview-of-key-findings" id="toc-overview-of-key-findings" class="nav-link" data-scroll-target="#overview-of-key-findings"><span class="header-section-number">2.1</span> Overview of key findings</a></li>
+  <li><a href="#microbial-specialization-and-ecological-shifts" id="toc-microbial-specialization-and-ecological-shifts" class="nav-link" data-scroll-target="#microbial-specialization-and-ecological-shifts"><span class="header-section-number">2.2</span> Microbial specialization and ecological shifts</a></li>
+  <li><a href="#biological-interpretation" id="toc-biological-interpretation" class="nav-link" data-scroll-target="#biological-interpretation"><span class="header-section-number">2.3</span> Biological interpretation</a></li>
+  <li><a href="#new-knowledge-and-implications" id="toc-new-knowledge-and-implications" class="nav-link" data-scroll-target="#new-knowledge-and-implications"><span class="header-section-number">2.4</span> New knowledge and implications</a></li>
   </ul></li>
-  <li><a href="#if-using-r-put-code-here-optional" id="toc-if-using-r-put-code-here-optional" class="nav-link" data-scroll-target="#if-using-r-put-code-here-optional"><span class="header-section-number">1</span> If using R, put code here (optional)</a></li>
-  <li><a href="#if-using-python-put-code-here-optional" id="toc-if-using-python-put-code-here-optional" class="nav-link" data-scroll-target="#if-using-python-put-code-here-optional"><span class="header-section-number">2</span> If using Python, put code here (optional)</a></li>
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations"><span class="header-section-number">3</span> Limitations</a></li>
+  <li><a href="#future-work" id="toc-future-work" class="nav-link" data-scroll-target="#future-work"><span class="header-section-number">4</span> Future work</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">5</span> Conclusion</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">6</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -153,81 +159,51 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="key-findings-draft" class="level2" data-number="0.1">
-<h2 data-number="0.1" class="anchored" data-anchor-id="key-findings-draft"><span class="header-section-number">0.1</span> Key findings (draft)</h2>
-<p>Add bullet points as you go.</p>
+<section id="results" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="results"><span class="header-section-number">1</span> Results</h2>
+<p>Overall, the logistic regression shows that there is a significant relationship between <em>Anaerostipes hadrus</em>, the intake of savory foods, and total cholesterol. Additionally, it was shown that cholesterol and savory food intake have an inverse relationship with <em>A. hadrus</em>. When cholesterol and savory food intake are both high, the presence of <em>A. hadrus</em> is significantly reduced. However, as cholesterol decreases and savory food intake increases, the presence of <em>A. hadrus</em> also increases.</p>
+<p>This is likely due to the fact that <em>A. hadrus</em> helps process cholesterol within the body while contributing to butyrate production, a short-chain fatty acid required in gastrointestinal function. Since it is using cholesterol as an energy-associated substrate, it follows that there would be an increased presence when cholesterol is present, but when in excess, <em>A. hadrus</em> does not appear to thrive, so its presence is mitigated.</p>
+<p>Out of the three bacterial species identified from the PCA, <em>A. hadrus</em> was the only one that had a significant relationship with cholesterol and savory foods. This is most likely due to the fact that <em>Alistipes putredinis</em> and <em>Ruminococcus bicirculans</em> are more specialized microbes, responsible for fiber processing and providing a supplemental relationship to <em>A. hadrus</em>.</p>
+<p>The relationship between all three microbes, vegetable intake, and fruit intake was tested, as well as the relationship between the microbes, protein intake, and cholesterol. All of the microbes demonstrated extremely small interactions between vegetable and fruit intake.</p>
 </section>
-<section id="figures" class="level2" data-number="0.2">
-<h2 data-number="0.2" class="anchored" data-anchor-id="figures"><span class="header-section-number">0.2</span> Figures</h2>
-<section id="q-q-plots" class="level3" data-number="0.2.1">
-<h3 data-number="0.2.1" class="anchored" data-anchor-id="q-q-plots"><span class="header-section-number">0.2.1</span> Q-Q Plots</h3>
-<details>
-<summary>
-Select a plot
-</summary>
-<div>
-<p><label for="qq-select">Variable:</label> <select id="qq-select" aria-label="Select Q-Q plot"> <option value="Cholesterol">Cholesterol</option> <option value="HDL Cholesterol">HDL Cholesterol</option> <option value="HEI-FLEX">HEI-FLEX</option> <option value="Homocysteine">Homocysteine</option> <option value="LDL Cholesterol">LDL Cholesterol</option> <option value="Pulse Wave Velocity">Pulse Wave Velocity</option> <option value="Triglycerides">Triglycerides</option> </select></p>
-</div>
-<div id="qq-container" style="margin-top:1rem;">
-<img id="qq-img" src="figures/Cholesterol..mmol.L._qqplot.png" alt="Cholesterol Q-Q plot" style="max-width:100%;height:auto;">
-<p id="qq-caption">
-Appears normally distributed
-</p>
-</div>
-<script>
-  const qqMap = {
-    "Cholesterol": {
-      src: "figures/Cholesterol..mmol.L._qqplot.png",
-      caption: "Appears normally distributed",
-    },
-    "HDL Cholesterol": {
-      src: "figures/HDL_cholesterol..mmol.L._qqplot.png",
-      caption: "Appears normally distributed",
-    },
-    "HEI-FLEX": {
-      src: "figures/HEI-FLEX_qqplot.png",
-      caption: "Appears normally distributed",
-    },
-    "Homocysteine": {
-      src: "figures/Homocystein..µmol.L._qqplot.png",
-      caption: "Appears right skewed",
-    },
-    "LDL Cholesterol": {
-      src: "figures/LDL_cholesterol..mmol.L._qqplot.png",
-      caption: "Appears normally distributed",
-    },
-    "Pulse Wave Velocity": {
-      src: "figures/Pulse_wave_velocity_qqplot.png",
-      caption: "Appears normally distributed, with one outlier",
-    },
-    "Triglycerides": {
-      src: "figures/Triglycerides..mmol.L._qqplot.png",
-      caption: "Appears right skewed",
-    },
-  };
-
-  const select = document.getElementById('qq-select');
-  const img = document.getElementById('qq-img');
-  const caption = document.getElementById('qq-caption');
-
-  select.addEventListener('change', (event) => {
-    const choice = event.target.value;
-    const data = qqMap[choice];
-    if (data) {
-      img.src = data.src;
-      img.alt = `${choice} Q-Q plot`;
-      caption.textContent = data.caption;
-    }
-  });
-</script>
-</details>
+<section id="discussion" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="discussion"><span class="header-section-number">2</span> Discussion</h2>
+<section id="overview-of-key-findings" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="overview-of-key-findings"><span class="header-section-number">2.1</span> Overview of key findings</h3>
+<p>The primary finding of this study is that host metabolic state significantly modifies the relationship between dietary intake and gut microbiome composition. Rather than acting independently, savory food intake and serum cholesterol levels interface to shape the abundance of key gut microbial taxa. This supports a context-dependent model of diet-microbiome interactions, where metabolic biomarkers influence how dietary exposures translate into microbial outcomes.</p>
+<p>The most notable effect was observed in <em>Anaerostipes hadrus</em>, a major butyrate-producing species essential for gut barrier integrity and anti-inflammatory activity. The logistic regression model showed a statistically significant interaction between savory food intake and cholesterol levels (<strong>p = 0.0266</strong>). While <em>A. hadrus</em> remained relatively stable in individuals with low cholesterol regardless of diet, its predicted probability decreased substantially in high cholesterol individuals as savory foods intake increased. This suggests that elevated cholesterol may alter the gut environment in a way that increases microbial sensitivity to dietary stressors.</p>
+<p>This makes sense, as <em>A. hadrus</em> is responsible for producing short-chain fatty acids such as butyrate to break down cholesterol, as well as using cholesterol in bile-acid reactions in order to maintain gut stability (Vourakis et al.). <em>A. hadrus</em> helps to limit the amount of cholesterol within the gut, but when there is too much cholesterol present, it creates a hostile environment in which <em>A. hadrus</em> cannot thrive. This is especially apparent when observing the relationship between <em>A. hadrus</em>, total cholesterol, and intake of savory foods.</p>
+<p>As for the other two species, <em>R. bicirculans</em> and <em>A. putredinis</em> are much more specialized microbiota. They are more bile-resistant, which allows them to thrive in harsher conditions compared to <em>A. hadrus</em>. They provide a supplementary relationship to <em>A. hadrus</em>, as they also produce butyrate from dietary fiber (Parker et al.).</p>
+</section>
+<section id="microbial-specialization-and-ecological-shifts" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="microbial-specialization-and-ecological-shifts"><span class="header-section-number">2.2</span> Microbial specialization and ecological shifts</h3>
+<p>A comparison across taxa highlights clear differences in ecological response. <em>Ruminococcus bicirculans</em>, a fiber-degrading bacterium, showed no significant interaction effect, suggesting relative stability across dietary and metabolic conditions. In contrast, <em>Alistipes putredinis</em> displayed an opposite trend, with increased predicted abundance in high-cholesterol, high-savory conditions.</p>
+<p>These contrasting patterns suggest a shift in microbial ecology driven by host metabolic state. A possible explanation involves bile acid metabolism. Elevated cholesterol is associated with increased bile acid production, which can act as a selective antimicrobial agent. This environment may not favor sensitive fiber-fermenting bacteria such as <em>A. hadrus</em> while favoring bile-resistant species such as <em>A. putredinis</em>. The resulting shift reflects a transition from a fiber-degrading microbial community toward one adapted to high-fat, bile-rich conditions, a pattern consistent with diet-associated dysbiosis.</p>
+</section>
+<section id="biological-interpretation" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="biological-interpretation"><span class="header-section-number">2.3</span> Biological interpretation</h3>
+<p>These findings align with existing research on short-chain fatty acids and gut health. Butyrate-producing bacteria such as <em>A. hadrus</em> contribute to fueling colon epithelial cells and maintaining gut barrier function. Their reduction may therefore have downstream effects on inflammation and metabolic regulation. The observed interaction suggests that cholesterol does not only act as a passive biomarker but may actively shape the gut environment, modifying how dietary inputs influence microbial survival and function.</p>
+</section>
+<section id="new-knowledge-and-implications" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="new-knowledge-and-implications"><span class="header-section-number">2.4</span> New knowledge and implications</h3>
+<p>This study introduces an interaction-centered framework for understanding diet-microbiome relationships. Rather than treating diet as a universal predictor of microbial composition, the results demonstrate that host metabolic state functions as a key modifier. Specifically, individuals with elevated cholesterol may be more susceptible to diet-associated reductions in beneficial butyrate-producing bacteria. This has important implications for personalized nutrition, suggesting that dietary recommendations may need to account for baseline biomarkers such as cholesterol.</p>
 </section>
 </section>
-<section id="if-using-r-put-code-here-optional" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> If using R, put code here (optional)</h1>
+<section id="limitations" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="limitations"><span class="header-section-number">3</span> Limitations</h2>
+<p>This study is cross-sectional, meaning that causal relationships cannot be established.</p>
 </section>
-<section id="if-using-python-put-code-here-optional" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> If using Python, put code here (optional)</h1>
+<section id="future-work" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="future-work"><span class="header-section-number">4</span> Future work</h2>
+<p>Future directions will include expansion to larger and longitudinal cohorts, additional validation of species-level effects, and deeper analysis of mediation/moderation pathways linking diet, metabolic biomarkers, and microbiome outcomes.</p>
+</section>
+<section id="conclusion" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">5</span> Conclusion</h2>
+<p>Host metabolic context appears to shape the microbiome response to diet, particularly for <em>A. hadrus</em> in the setting of savory food intake and cholesterol variation. These findings support a context-dependent interpretation of diet-microbiome relationships and motivate biomarker-informed dietary strategies in future microbiome research.</p>
+</section>
+<section id="references" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="references"><span class="header-section-number">6</span> References</h2>
+<p>References are listed in the project bibliography and in-text citations.</p>
 
 
 </section>
@@ -637,13 +613,13 @@ Appears normally distributed
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>BNFO 420 • VCU</p>
+<p>BNFO 420 • VCU • End of Manuscript</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p>Built with Quarto</p>
+<p>Built with Quarto • Manuscript v1.0</p>
 </div>
   </div>
 </footer>
@@ -651,4 +627,5 @@ Appears normally distributed
 
 
 
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

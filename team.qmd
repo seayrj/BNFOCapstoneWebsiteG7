@@ -2,14 +2,27 @@
 title: "Team"
 ---
 
-## Members
-- Name 1 — role (data cleaning, EDA, modeling, writing)
-- Name 2 — role
-- Name 3 — role
-- Name 4 — role
+## Project team
 
-## Collaboration rules (simple)
-- Pull before you start work.
-- Commit small changes with clear messages.
-- Only one person edits the *same* `.qmd` file at a time.
-- Use Issues (optional) for tasks/bugs.
+- BNFO 420 Capstone Group
+- Research focus: microbiome, diet, and cardiometabolic biomarker interactions
+- Manuscript status: pre-print draft
+
+## Current responsibilities
+
+- Data integration and quality control
+- Exploratory statistical analysis (Q-Q plots, correlation, PCA)
+- Modeling (logistic regression with interaction terms)
+- Writing and interpretation for manuscript sections
+
+## Workflow conventions
+
+- Pull before starting new edits
+- Keep commits focused and descriptive
+- Avoid parallel edits to the same `.qmd` file
+- Keep data provenance notes updated in `data/README.md`
+
+## Manuscript footer metadata
+
+- Last updated: 2026
+- Version: Manuscript v1.0

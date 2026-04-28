@@ -5,27 +5,30 @@ project:
 bibliography: references.bib
 
 website:
-  title: "BNFO 420 Capstone"
+  title: "Microbiome x Cardiometabolic Health"
   navbar:
     left:
       - href: index.qmd
         text: Home
       - href: proposal.qmd
-        text: Proposal
+        text: Methods
       - href: results.qmd
         text: Results
       - href: team.qmd
         text: Team
 
   page-footer:
-    left: "BNFO 420 • VCU"
-    right: "Built with Quarto"
+    left: "BNFO 420 • VCU • End of Manuscript"
+    right: "Built with Quarto • Manuscript v1.0"
 
 format:
   html:
-    theme: cosmo
+    theme:
+      - cosmo
+      - assets/theme.scss
     toc: true
     number-sections: true
+    smooth-scroll: true
 
 execute:
   echo: true

@@ -1,26 +1,35 @@
 ---
-title: "Project Title"
-subtitle: "BNFO 420 Capstone"
+title: "Microbiome x Cardiometabolic Health"
+subtitle: "How do savory foods influence the presence of beneficial microbiota species?"
 ---
 
-## One-paragraph summary
-Write 4–6 sentences describing:
-- the problem or question
-- the dataset(s)
-- your approach (methods)
-- what you will deliver (figures, model, dashboard, etc.)
+<div class="hero-kicker">Bioinformatics Capstone</div>
+<div class="hero-title">A computational investigation at the intersection of health, diet, and the microbiome.</div>
 
-## Project roadmap (living)
-- [ ] Find dataset(s)
-- [ ] Define outcome + predictors / variables
-- [ ] Exploratory analysis + QC
-- [ ] Method 1 (required)
-- [ ] Method 2 (optional/extension)
-- [ ] Final figures + interpretation
-- [ ] Limitations + ethics + reproducibility notes
+**n = 92** samples. **Host phenotyping** includes age, sex, BMI, and clinical biomarkers. **ZOE PREDICT 1** (UK subset cohort).
 
-## Where to find things
-- **Scripts:** `scripts/`
-- **Data notes:** `data/README.md`
-- **Figures:** `figures/`
-- **Citations:** `references.bib`
+## Abstract
+
+Humans have co-evolved with a complex internal ecosystem of microbiota, functioning less as isolated organisms and more as symbiotic vessels for trillions of microbial cells. While diets high in savory, energy-dense foods, and elevated cholesterol are well-established risk factors for cardiometabolic disease, the precise role of the gut microbiome as an intermediary remains incompletely understood, particularly in the context of how host metabolic state modifies microbial responses to diet. We hypothesize that the interaction between savory food intake and serum cholesterol levels predicts the depletion of beneficial gut microbes, providing a mechanistic link to diet-induced dysbiosis. Specifically, we tested whether these effects can be observed in key butyrate- and fiber processing taxa, including *Anaerostipes hadrus*, *Ruminococcus bicirculans*, and *Alistipes putredinis*, and whether this relationship depends on host metabolic context.
+
+A cohort (**N = 92**) was combined with public metagenomic datasets. We implemented an integrated analytical pipeline incorporating principal component analysis (PCA), logistic regression models of microbial presence, and adjustment for age, sex, and BMI, with multiple testing addressed using Benjamini-Hochberg false discovery rate correction. Our PCA, anchored by dietary indices including Healthy Eating Index (HEI) and Flex scores, identified savory intake, carbohydrates, cholesterol, LDL, ferritin, and creatine as dominant contributors, alongside the selected microbial taxa, supporting their inclusion as key features for downstream analysis.
+
+Logistic regression revealed evidence of associations for savory intake (**p = 0.0495**) and cholesterol (**p = 0.0183**), as well as a statistically significant interaction between these variables (**p = 0.0266**). The negative interaction coefficient indicated that increasing cholesterol reduces and can ultimately reverse the relationship between savory intake and microbial presence, possibly suggesting a conditional and non-linear relationship between diet and microbiome composition.
+
+These findings suggest that the microbiome functions as a context-dependent mediator of diet-health relationships, with host metabolic state shaping how dietary factors influence microbial composition. This interaction-based framework provides a mechanistic explanation for diet-associated dysbiosis and identifies specific taxa as candidates for future validation in larger, longitudinal studies and potential targets for microbiome informed dietary interventions.
+
+## Introduction
+
+Diet is one of the most powerful environmental determinants of human health, with strong evidence linking dietary patterns and metabolic biomarkers to cardiometabolic disease risk. In particular, diets high in savory, energy-dense foods, alongside elevated serum cholesterol levels, have consistently been associated with increased incidence of metabolic dysfunction, inflammation, and long-term disease outcomes. However, the biological mechanisms that connect these risk factors to disease progression remain incompletely understood.
+
+Recently the gut microbiome emerged as a key intermediary between diet and host physiology. Rather than being just a passive group of microorganisms, the gut microbiota actively breaks down the food we eat and produces vital compounds that affect energy use, immune health, and overall metabolism. One of the most important of these processes is the production of short-chain fatty acid, especially butyrate, which plays a key role in maintaining gut health. The depletion of butyrate-producing and fiber-degrading bacteria, including *Anaerostipes hadrus*, *Ruminococcus bicirculans*, and *Alistipes putredinis*, has been associated with gut dysbiosis and adverse health outcomes.
+
+Short chain fatty acids (SCFA) are very important in maintaining host symbiosis, as well as directly contributing to colon health (Tan et al.). Butyrate is one of these SCFAs, and is very important in overall health. It breaks down cholesterol within the body, is very important in maintaining homeostasis, as well as nourishing the colon (Snodgrass et al.). Most SCFAs are absorbed directly into the intestines, leaving the colon without any. One of the many reasons that microbiota within the gut are so beneficial is that they produce SCFAs, supplying the colon with an adequate amount of them to function. Without these microbiota, overall health would be greatly impacted, and would negatively impact immune responses, as well as neurological function through the gut-brain axis (Snodgrass et al.). This ultimately results in the classification of these species as keystone species within the gut, as they play such a significant role in maintaining host health.
+
+*Anaerostipes hadrus* is a member of the Lachnospiraceae family that incorporates SCFAs into butyrate, which aids in cell barrier maintenance and immune responses (Herold et al.). Additionally, the presence of *A. hadrus* consumes nutrients often used by members of the Enterobacteriaceae family, and organisms produce pathogen-inhibiting SCFAs (SCFAs other than butyrate) providing resistance against colonization by its members (Herold et al.). Some *Ruminococcus* species are also from the family Lachnospiraceae, but those that are not are from the Oscillospiraceae family that shares many properties with Lachnospiraceae family, being non-motile, gram-positive obligate anaerobes (Valentino et al.). Excessive presence of certain species can cause inflammation, though others are largely beneficial for their ability to hydrolyze resistant starches, N- and O-glycans in the case of Lachnospiraceae species and fiber in the case of Oscillospiraceae (Valentino et al.).
+
+Despite butyrate's well-established biological importance, most studies have looked at diet-microbiome relationships and cholesterol-microbiome relationships separately. This misses an important possibility that a person's metabolic state may change how diet affects the gut microbiome. In other words, dietary effects on gut bacteria may not be the same for everyone, instead they may depend on factors like cholesterol levels. This idea where host conditions influence how diet shapes microbial composition, is still not well studied, especially for key butyrate-producing bacteria. To effectively address this gap we investigated whether the interaction between savory food intake and serum cholesterol levels predicts the presence of key beneficial gut microbes. We focused on *A. hadrus*, *R. bicirculans*, and *A. putredinis* as representative taxa involved in fiber metabolism and butyrate production.
+
+> **Hypothesis:** We hypothesize that the interaction between savory food intake and serum cholesterol levels contributes to the depletion of beneficial microbes, providing a mechanistic link between diet, host metabolic state and gut dysbiosis.
+
+To test this hypothesis, we used an integrated analytical framework combining principal component analysis (PCA), logistic regression with interaction terms, and linear modeling of clinical biomarkers like cholesterol, ferritin, and creatine. By integrating dietary indices (including the Healthy Eating Index and Flex scores), metabolic biomarkers, and microbial composition data from a cohort (**N = 92**) and public metagenomic datasets, this study aims to move beyond simple associations and toward a mechanistic understanding of how diet and host metabolism jointly shape the gut microbiome.

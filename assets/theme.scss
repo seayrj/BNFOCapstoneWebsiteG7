@@ -1,0 +1,83 @@
+/*-- scss:defaults --*/
+$body-bg: #14100d;
+$body-color: #f6efe6;
+$link-color: #3ec18f;
+$primary: #3ec18f;
+$secondary: #f4b942;
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+
+/*-- scss:rules --*/
+body {
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  background-image:
+    radial-gradient(circle at 20% 0%, rgba(62, 193, 143, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 100%, rgba(244, 185, 66, 0.08) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "IBM Plex Serif", Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+.navbar, .quarto-title-banner {
+  backdrop-filter: blur(6px);
+}
+
+.hero-kicker {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #7ad9b3;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  margin-top: 0.7rem;
+}
+
+.panel {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.35rem;
+  background: rgba(31, 24, 19, 0.72);
+  padding: 1.2rem;
+}
+
+.section-label {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #3ec18f;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.stat-card {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.35rem;
+  padding: 0.8rem;
+  background: rgba(31, 24, 19, 0.62);
+}
+
+.stat-value {
+  font-family: "IBM Plex Serif", Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.stat-label {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #b8ab9d;
+}
