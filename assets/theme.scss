@@ -81,3 +81,29 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.12em;
   color: #b8ab9d;
 }
+
+/* Inline code appears as bold text only, globally */
+:not(pre) > code,
+code:not(pre code) {
+  color: inherit !important;
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  font-weight: 700 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Remove all highlight effects and use bold only */
+mark,
+.mark,
+.search-match,
+.quarto-search-match,
+.quarto-search-highlight {
+  color: inherit !important;
+  background: transparent !important;
+  font-weight: 700 !important;
+  padding: 0 !important;
+}
